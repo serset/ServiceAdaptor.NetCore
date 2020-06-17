@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>1.0.7.7</Version>
+    <Version>1.0.9.8</Version>
     <Description>https://github.com/sersms/ServiceAdaptor.NetCore/tree/1.0/release</Description>
   </PropertyGroup>
 
@@ -17,7 +17,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Vit.WebHost" Version="2.1.1.348" />    
+    <PackageReference Include="Vit.WebHost" Version="2.1.1.352" />    
     <PackageReference Include="Blueearth" Version="3.0.24" />
  
     
