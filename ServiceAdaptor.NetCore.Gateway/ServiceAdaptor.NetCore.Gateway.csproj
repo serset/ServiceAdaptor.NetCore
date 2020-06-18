@@ -26,7 +26,7 @@
     <ProjectReference Include="..\ServiceAdaptor.NetCore.MinHttp\ServiceAdaptor.NetCore.MinHttp.csproj" />  
     <ProjectReference Include="..\ServiceAdaptor.NetCore.Consul\ServiceAdaptor.NetCore.Consul.csproj" />
     <ProjectReference Include="..\ServiceAdaptor.NetCore.Sers\ServiceAdaptor.NetCore.Sers.csproj" />
-    <ProjectReference Include="..\ServiceAdaptor.NetCore.Be.Eureka\ServiceAdaptor.NetCore.Be.Eureka.csproj" />
+    <!--<ProjectReference Include="..\ServiceAdaptor.NetCore.Be.Eureka\ServiceAdaptor.NetCore.Be.Eureka.csproj" />-->
     
   </ItemGroup>
 
