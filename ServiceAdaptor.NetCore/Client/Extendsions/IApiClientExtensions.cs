@@ -22,6 +22,48 @@ namespace Vit.Extensions
     public static partial class IApiClientExtensions
     {
 
+        #region Event
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Instance"></param>
+        /// <param name="apiEvent"></param>
+        public static void AddEvent(this IApiClient Instance, IApiEvent apiEvent)
+        {
+            if (Instance.apiEvents == null) Instance.apiEvents = new System.Collections.Generic.List<IApiEvent>();
+            Instance.apiEvents.Add(apiEvent);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Instance"></param>
+        /// <param name="apiEvent"></param>
+        public static void RemoveEvent(this IApiClient Instance, IApiEvent apiEvent)
+        {
+            Instance.apiEvents?.Remove(apiEvent);
+        }
+
+
+        public static async Task<ApiResponse<ReturnType>> BeforeCallApi<ReturnType>(this IApiClient apiClient,ApiRequest req)
+        {
+            if (apiClient.apiEvents != null)
+            {
+                foreach (var apiEvent in apiClient.apiEvents)
+                {
+                    var apiResponse = await apiEvent.BeforeCallApi<ReturnType>(req);
+                    if (apiResponse != null) return apiResponse;
+                }
+            }
+            return null;
+        }
+        #endregion
+
+
+
+
         #region CallApi
 
         /// <summary>

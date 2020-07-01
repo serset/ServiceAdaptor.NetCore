@@ -21,7 +21,10 @@ using Vit.Extensions;
 namespace ServiceAdaptor.NetCore.Sers
 {
     public class ApiClient : IApiClient
-    {         
+    {
+
+        public List<IApiEvent> apiEvents { get; set; }
+
 
         #region CallApi
 
@@ -33,6 +36,11 @@ namespace ServiceAdaptor.NetCore.Sers
         /// <returns></returns>
         public ApiResponse<ReturnType> CallApi<ReturnType>(ApiRequest req)
         {
+            //(x.0)BeforeCallApi
+            var apiResponse = this.BeforeCallApi<ReturnType>(req).Result;
+            if (apiResponse != null) return apiResponse;
+
+
             #region (x.1)构建请求           
             var url = req.url;
             var arg = req.arg;
@@ -91,6 +99,11 @@ namespace ServiceAdaptor.NetCore.Sers
         /// <returns></returns>
         public async Task<ApiResponse<ReturnType>> CallApiAsync<ReturnType>(ApiRequest req)
         {
+            //(x.0)BeforeCallApi
+            var apiResponse = this.BeforeCallApi<ReturnType>(req).Result;
+            if (apiResponse != null) return apiResponse;
+
+
             #region (x.1)构建请求           
             var url = req.url;
             var arg = req.arg;

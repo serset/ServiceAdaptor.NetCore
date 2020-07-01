@@ -10,15 +10,19 @@
 
 
 using ServiceAdaptor.NetCore.Client;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vit.Core.Util.Net;
+using Vit.Extensions;
 
 namespace ServiceAdaptor.NetCore.MinHttp
 {
-    public class ApiClient: IApiClient
+    public class ApiClient : IApiClient
     {
 
         public readonly HttpClient vitHttpClient = new HttpClient();
+
+        public List<IApiEvent> apiEvents { get; set; }
 
 
 
@@ -32,6 +36,11 @@ namespace ServiceAdaptor.NetCore.MinHttp
         /// <returns></returns>
         public virtual ApiResponse<ReturnType> CallApi<ReturnType>(ApiRequest req) 
         {
+            //(x.0)BeforeCallApi
+            var apiResponse = this.BeforeCallApi<ReturnType>(req).Result;
+            if (apiResponse != null) return apiResponse;
+
+
             var request = new HttpRequest { url = req.url, body = req.arg, httpMethod = req.httpMethod, headers = req.headers };
 
             if (request.body != null && request.httpMethod == "GET")
@@ -54,8 +63,12 @@ namespace ServiceAdaptor.NetCore.MinHttp
         /// <typeparam name="ReturnType"></typeparam>
         /// <param name="req"></param>
         /// <returns></returns>
-        public virtual async Task<ApiResponse<ReturnType>> CallApiAsync<ReturnType>(ApiRequest req) 
+        public virtual async Task<ApiResponse<ReturnType>> CallApiAsync<ReturnType>(ApiRequest req)
         {
+            //(x.0)BeforeCallApi
+            var apiResponse = this.BeforeCallApi<ReturnType>(req).Result;
+            if (apiResponse != null) return apiResponse;
+
             var request = new HttpRequest { url = req.url, body = req.arg, httpMethod = req.httpMethod, headers = req.headers };
 
             if (request.body != null && request.httpMethod == "GET")

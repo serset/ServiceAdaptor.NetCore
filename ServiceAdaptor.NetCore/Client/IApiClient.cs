@@ -9,10 +9,13 @@
 #endregion
 
 
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ServiceAdaptor.NetCore.Client
 {
+
     public interface IApiClient
     {
         /// <summary>
@@ -28,6 +31,9 @@ namespace ServiceAdaptor.NetCore.Client
         /// <param name="req"></param>
         /// <returns></returns>
         Task<ApiResponse<ReturnType>> CallApiAsync<ReturnType>(ApiRequest req);
+
+
+        List<IApiEvent> apiEvents{ get; set; }
 
     }
 }

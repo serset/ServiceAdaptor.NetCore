@@ -50,51 +50,34 @@ namespace ServiceAdaptor.NetCore.Consul
 
 
 
-        protected async Task<ApiResponse<ReturnType>> BeforeCallApi<ReturnType>(ApiRequest req)
-        {           
-            var serviceInfo= FindServiceByServiceName( req.GetServiceName());
-
-            if (serviceInfo == null) 
+ 
+        #region ApiEvent
+        class ApiEvent : IApiEvent
+        {
+            public ApiClient apiClient;
+            public async Task<ApiResponse<ReturnType>> BeforeCallApi<ReturnType>(ApiRequest req)
             {
-                return new ApiResponse<ReturnType> { StatusCode = (int)HttpStatusCode.NotFound }; 
+
+                var serviceInfo = apiClient.FindServiceByServiceName(req.GetServiceName());
+
+                if (serviceInfo == null)
+                {
+                    return new ApiResponse<ReturnType> { StatusCode = (int)HttpStatusCode.NotFound };
+                }
+
+                req.url = "http://" + serviceInfo.ServiceAddress + ":" + serviceInfo.ServicePort + req.url;
+
+                return null;
             }
-
-            req.url = "http://" + serviceInfo.ServiceAddress + ":" + serviceInfo.ServicePort +  req.url;
-
-            return null;
         }
-
-
-        #region CallApi
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="ReturnType"></typeparam>
-        /// <param name="req"></param>
-        /// <returns></returns>
-        public override ApiResponse<ReturnType> CallApi<ReturnType>(ApiRequest req)
-        {
-            var apiResponse=BeforeCallApi<ReturnType>(req).Result;         
-
-            return apiResponse ?? base.CallApi<ReturnType>(req);
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="ReturnType"></typeparam>
-        /// <param name="req"></param>
-        /// <returns></returns>
-        public override  async Task<ApiResponse<ReturnType>> CallApiAsync<ReturnType>(ApiRequest req)
-        {
-            var apiResponse =  await BeforeCallApi<ReturnType>(req);
-
-            return apiResponse ??  await base.CallApiAsync<ReturnType>(req);
-        }
-
         #endregion
+
+
+
+        public ApiClient()
+        {
+            this.AddEvent(new ApiEvent { apiClient = this });
+        }       
 
 
     }
