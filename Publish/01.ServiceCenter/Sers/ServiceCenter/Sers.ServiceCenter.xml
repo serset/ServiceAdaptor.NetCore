@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.ServiceCenter</name>
+    </assembly>
+    <members>
+        <member name="T:Sers.ServiceCenter.ApiCenter.ApiCenterService">
+            <summary>
+            用来管理 api站点 服务站点 api服务 api节点 等
+            </summary> 
+        </member>
+        <member name="F:Sers.ServiceCenter.ApiCenter.ApiCenterService.BeforeCallApi">
+            <summary>
+            BeforeCallApi(IRpcContextData rpcData, ApiMessage requestMessage)
+            </summary>
+        </member>
+        <member name="M:Sers.ServiceCenter.ApiCenter.ApiCenterService.ServiceStation_UpdateStationInfo(Sers.ServiceCenter.Entity.ServiceStation)">
+            <summary>
+            更新服务站点设备硬件信息
+            </summary>
+            <param name="serviceStation"></param>
+        </member>
+        <member name="M:Sers.ServiceCenter.Controllers.ServiceStationController.Regist(Sers.ServiceCenter.Entity.ServiceStation)">
+            <summary>
+            注册站点。在站点初始化时调用
+            </summary>
+            <param name="serviceStation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.ServiceCenter.Controllers.ServiceStationController.UpdateStationInfo(Sers.ServiceCenter.Entity.ServiceStation)">
+            <summary>
+            更新服务站点设备硬件信息
+            </summary>
+            <param name="serviceStation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sers.ServiceCenter.Entity.ApiNode">
+            <summary>
+             一个api服务可能在多台服务站点上部署，在某一个服务站点上的api服务就是api节点(ApiNode)
+            </summary>
+        </member>
+        <member name="F:Sers.ServiceCenter.Entity.ApiNode.apiService">
+            <summary>
+            所在的ApiService
+            </summary> 
+        </member>
+        <member name="T:Sers.ServiceCenter.Entity.ApiService">
+            <summary>
+            对应一个指定路由对应的api服务
+            </summary>
+        </member>
+        <member name="T:Sers.ServiceCenter.Entity.ServiceStation">
+            <summary>
+            对应一个部署的服务站点
+            </summary>
+        </member>
+        <member name="F:Sers.ServiceCenter.Entity.ServiceStation.startTime">
+            <summary>
+            服务站点开启时间
+            </summary>
+        </member>
+        <member name="P:Sers.ServiceCenter.Entity.ServiceStation.connection">
+            <summary>
+            CL通信层连接对象
+            </summary>
+        </member>
+        <member name="F:Sers.ServiceCenter.Entity.ServiceStation.deviceInfo">
+            <summary>
+            站点软硬件环境信息
+            </summary>
+        </member>
+        <member name="F:Sers.ServiceCenter.Entity.ServiceStation.serviceStationInfo">
+            <summary>
+            站点信息。同一硬件可以部署多个站点，它们软硬件环境是一样的，但站点信息不一样。
+            </summary>
+        </member>
+        <member name="F:Sers.ServiceCenter.Entity.ServiceStation.usageStatus">
+            <summary>
+            系统当前占用率
+            </summary>
+        </member>
+        <member name="P:Sers.ServiceCenter.Entity.ServiceStation.qps">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sers.ServiceCenter.ServiceCenter.LoadApi">
+            <summary>
+            从配置文件(appsettings.json::Sers.LocalApiService.ApiLoaders )  加载api加载器并加载api
+            从配置文件(appsettings.json::Sers.LocalApiService.StaticFileMap)加载静态文件映射器
+            </summary>
+        </member>
+        <member name="M:Sers.ServiceCenter.ServiceCenter.LoadSsApi(Sers.SersLoader.ApiLoaderConfig)">
+            <summary>
+            调用SsApi加载器加载api
+            </summary> 
+            <param name="config"></param>
+        </member>
+        <member name="M:Sers.ServiceCenter.ServiceCenter.LoadSsApi(System.Reflection.Assembly,Sers.SersLoader.ApiLoaderConfig)">
+            <summary>
+            调用SsApi加载器加载api
+            </summary>
+            <param name="assembly"></param>
+            <param name="config"></param>
+        </member>
+    </members>
+</doc>

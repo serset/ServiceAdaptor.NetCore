@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.Hardware</name>
+    </assembly>
+    <members>
+        <member name="P:Sers.Hardware.Env.DeviceInfo.deviceKey">
+            <summary>
+            机器key码，同一台机器key码不变
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.OSArchitecture">
+            <summary>
+            系统架构
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.OSDescription">
+            <summary>
+            系统名称
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.ProcessArchitecture">
+            <summary>
+            进程架构
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.Is64BitOperatingSystem">
+            <summary>
+            是否64位操作系统
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.ProcessorCount">
+            <summary>
+            CPU CORE
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.MachineName">
+            <summary>
+            HostName
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.OSVersion">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.WorkingSet">
+            <summary>
+            内存相关的
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.ProcessorID">
+            <summary>
+            CPU序列号
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.DeviceInfo.linux_ServerInfo">
+            <summary>
+            描述linux系统的信息（若不为Linux则为null)
+            </summary>
+        </member>
+        <member name="M:Sers.Hardware.Env.EnvHelp.MD5(System.String)">
+            <summary>
+            MD5加密字符串（32位大写）
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetCpuSerialNumber">
+            <summary>
+            读取CPU序列号信息(不一定能获取到，而且不一定唯一)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetOsVersion">
+            <summary>
+            demo: Linux version 4.13.0-36-generic (buildd@lgw01-amd64-033) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.9)) #40~16.04.1-Ubuntu SMP Fri Feb 16 23:25:58 UTC 2018
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetMacAddrByIfconfig">
+            <summary>
+            获取网卡（包含虚拟网卡） Mac地址(自动排序且字母为大写)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetMacInfoByFile">
+            <summary>
+            从文件 /sys/class/net/enp3s0/address 中获取mac地址
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.LinuxHelp.MacInfo.address">
+            <summary>
+            如 02:42:24:90:E5:6E  (字母为大写)
+            </summary>
+        </member>
+        <member name="F:Sers.Hardware.Env.LinuxHelp.MacInfo.name">
+            <summary>
+            如 enp3s0
+            </summary>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetMemInfo">
+            <summary>
+            读取内存信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetHddInfo">
+            <summary>
+            读取硬盘信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetCpuTemperature">
+            <summary>
+            读取CPU温度信息(单位：摄氏度)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.LinuxHelp.GetServerInfo">
+            <summary>
+            获取服务器软硬件信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.ServerInfo.MemInfo">
+            <summary>
+            内存
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.ServerInfo.HDDInfo">
+             <summary>
+            硬盘信息
+             </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.ServerInfo.CpuSerialNumber">
+            <summary>
+            CPU序列号
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.ServerInfo.CpuTemperature">
+            <summary>
+            CPU温度
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.MemInfo.Total">
+            <summary>
+            总计内存大小
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.MemInfo.Available">
+            <summary>
+            可用内存大小
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.HDDInfo.Size">
+            <summary>
+            硬盘大小
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.HDDInfo.Used">
+            <summary>
+            已使用大小
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.HDDInfo.Avail">
+            <summary>
+            可用大小
+            </summary>
+        </member>
+        <member name="P:Sers.Hardware.Env.LinuxHelp.HDDInfo.Usage">
+            <summary>
+            使用率
+            </summary>
+        </member>
+        <member name="M:Sers.Hardware.Env.WindowsHelp.GetMacAddrByGetmac">
+            <summary>
+            获取网卡（包含虚拟网卡） Mac地址(自动排序且字母为大写)。demo:D8-CB-8A-13-14-C4
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Env.WindowsHelp.GetMacAddrByIpconfig">
+            <summary>
+            获取网卡（包含虚拟网卡） Mac地址(自动排序且字母为大写)。demo:D8-CB-8A-13-14-C4
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.OsShell.Shell(System.String,System.String,System.String@,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="fileName"> 如 reboot </param>
+            <param name="arguments"></param>
+            <param name="output"></param>
+            <param name="millisecondsOfWait">等待时间，默认4000。若不指定则永久等待</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.OsShell.Shell(System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="fileName"> 如 reboot </param>
+            <param name="arguments"></param>
+            <param name="millisecondsOfWait">等待时间，默认null。若不指定则永久等待</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Hardware.Usage.LinuxUsageReader.ReadCpuUsage">
+            <summary>
+            读取CPU使用率信息
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

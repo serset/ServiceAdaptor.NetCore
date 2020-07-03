@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vit.WebHost</name>
+    </assembly>
+    <members>
+        <member name="M:Vit.Extensions.IWebHostBuilderExtensions_AddConfigure.AddConfigure(Microsoft.AspNetCore.Hosting.IWebHostBuilder,System.Action{Microsoft.AspNetCore.Builder.IApplicationBuilder},System.Action{Microsoft.AspNetCore.Builder.IApplicationBuilder})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="beforeConfig"></param>
+            <param name="afterConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.IWebHostBuilderExtensions_VitConfig.UseVitConfig(Microsoft.AspNetCore.Hosting.IWebHostBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Vit.WebHost.HostRunArg.urls">
+            <summary>
+            
+            </summary>       
+        </member>
+        <member name="F:Vit.WebHost.HostRunArg.allowAnyOrigin">
+            <summary>
+            是否允许跨域访问，默认true
+            </summary>       
+        </member>
+        <member name="F:Vit.WebHost.HostRunArg.staticFiles">
+            <summary>
+            映射静态文件，可不指定
+            </summary>       
+        </member>
+        <member name="F:Vit.WebHost.HostRunArg.RunAsync">
+            <summary>
+            是否异步运行.Runs a web application and returns a Task that only completes when the token is triggered or shutdown is triggered.
+            </summary>      
+        </member>
+        <member name="P:Vit.WebHost.StaticFilesConfig.rootPath">
+            <summary>
+            静态文件路径。可为相对路径或绝对路径。若为空或空字符串则为默认路径（wwwroot）。demo:"wwwroot"
+            </summary>
+        </member>
+        <member name="P:Vit.WebHost.StaticFilesConfig.defaultFileNames">
+            <summary>
+            默认页面（可不指定）。An ordered list of file names to select by default. List length and ordering  may affect performance
+            </summary>       
+        </member>
+        <member name="P:Vit.WebHost.StaticFilesConfig.useDirectoryBrowser">
+            <summary>
+            是否可浏览目录(default false)。Enables directory browsing
+            </summary>       
+        </member>
+        <member name="P:Vit.WebHost.StaticFilesConfig.responseHeaders">
+            <summary>
+            回应静态文件时额外添加的http回应头。可不指定。
+            </summary>       
+        </member>
+        <member name="P:Vit.WebHost.StaticFilesConfig.contentTypeMapFile">
+            <summary>
+            静态文件类型映射配置的文件路径。可为相对路径或绝对路径。例如"contentTypeMap.json"。若不指定（或指定的文件不存在）则不指定文件类型映射配置
+            </summary>
+        </member>
+        <member name="P:Vit.WebHost.StaticFilesConfig.OnInitStaticFileOptions">
+            <summary>
+            初始化 wwwroot静态文件配置的操作
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.Gateway</name>
+    </assembly>
+    <members>
+        <member name="F:Sers.Gateway.GatewayHelp.BeforeCallApi">
+            <summary>
+            BeforeCallApi(IRpcContextData rpcData, ApiMessage requestMessage)
+            </summary>
+        </member>
+        <member name="T:Sers.Gateway.RateLimit.FixedWindow">
+            <summary>
+            固定时间窗口限流
+            </summary>
+        </member>
+        <member name="P:Sers.Gateway.RateLimit.FixedWindow.rateLimitType">
+            <summary>
+            限流规则名称,一般对应一个类
+            </summary>
+        </member>
+        <member name="P:Sers.Gateway.RateLimit.FixedWindow.rateLimitKey">
+            <summary>
+            限流项名称，必须唯一
+            </summary>
+        </member>
+        <member name="F:Sers.Gateway.RateLimit.FixedWindow.reqLimit">
+            <summary>
+            时间窗口内最大请求数
+            </summary>
+        </member>
+        <member name="F:Sers.Gateway.RateLimit.FixedWindow.msInterval">
+            <summary>
+            时间窗口ms
+            </summary>
+        </member>
+        <member name="M:Sers.Gateway.RateLimit.IRateLimit.BeforeCall(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            若返回不为null，则对应服务被限流(服务直接返回对应错误)
+            </summary>
+            <param name="rpcData"></param>
+            <param name="requestMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Sers.Gateway.RateLimit.RateLimitMng.limitType_Map">
+            <summary>
+            rateLimitType -> RateLimitType 限制
+            </summary>
+        </member>
+        <member name="F:Sers.Gateway.RateLimit.RateLimitMng.limit_Map">
+            <summary>
+            rateLimitKey -> IRateLimit 映射
+            </summary>
+        </member>
+        <member name="M:Sers.Gateway.RateLimit.RateLimitMng.LoadFromConfiguration">
+            <summary>
+            从配置文件加载 服务限流配置
+            </summary>
+        </member>
+        <member name="M:Sers.Gateway.RateLimit.RateLimitMng.RateLimit_GetAll">
+            <summary>
+            获取所有限流项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gateway.RateLimit.RateLimitMng.BeforeCall(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            若返回不为null，则对应服务被限流(服务直接返回对应错误)
+            </summary>
+            <param name="rpcData"></param>
+            <param name="requestMessage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

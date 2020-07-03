@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.10.21</Version>
+    <Description>https://github.com/sersms/ServiceAdaptor.NetCore/tree/1.0/release</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.NetCore.MinHttp.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj" />
+  </ItemGroup>
+
+</Project>

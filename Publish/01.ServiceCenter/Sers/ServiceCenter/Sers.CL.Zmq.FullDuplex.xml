@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.CL.Zmq.FullDuplex</name>
+    </assembly>
+    <members>
+        <member name="F:Sers.CL.Zmq.FullDuplex.DeliveryClient.endpoint">
+            <summary>
+            地址。例如： "tcp://127.0.0.1:4504" 、 "ipc://4504"
+            </summary>
+        </member>
+        <member name="P:Sers.CL.Zmq.FullDuplex.DeliveryConnection.state">
+            <summary>
+            连接状态(0:waitForCertify; 2:certified; 4:waitForClose; 8:closed;)
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.DeliveryServer.connMap">
+            <summary>
+             connGuid -> conn
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.DeliveryServer.endpoint">
+            <summary>
+            地址。例如： "tcp://*:4504" 、 "ipc://4504"
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.DeliveryServer.Start">
+            <summary>
+            启动服务
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.DeliveryServer.Stop">
+            <summary>
+            停止服务
+            </summary>
+        </member>
+        <member name="T:Sers.CL.Zmq.FullDuplex.Zmq.ZContext">
+            <summary>
+            Creates <see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket"/> instances within a process boundary.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZContext.#ctor">
+            <summary>
+            Create a <see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZContext"/> instance.
+            </summary>
+            <returns><see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZContext"/></returns>
+        </member>
+        <member name="P:Sers.CL.Zmq.FullDuplex.Zmq.ZContext.ContextPtr">
+            <summary>
+            Gets a handle to the native ZeroMQ context.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZContext.Shutdown">
+            <summary>
+            Shutdown the ZeroMQ context.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZContext.Terminate">
+            <summary>
+            Terminate the ZeroMQ context.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZContext.Terminate(System.Int32@)">
+            <summary>
+            Terminate the ZeroMQ context.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.zmq.ThrowErrno(System.Int32)">
+            <summary>
+            在出错时调用。若出错，则抛异常;做不抛异常，则代表可以重试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket">
+            <summary>
+            Sends and receives messages, single frames and byte frames across ZeroMQ.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.#ctor(Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType)">
+            <summary>
+            Create a <see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket"/> instance.
+            You are using ZContext.Current!
+            </summary>
+            <returns><see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket"/></returns>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.#ctor(Sers.CL.Zmq.FullDuplex.Zmq.ZContext,Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType)">
+            <summary>
+            Create a <see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket"/> instance.
+            </summary>
+            <returns><see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket"/></returns>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket"/> class.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket"/>, and optionally disposes of the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Close">
+            <summary>
+            Close the current socket.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Close(System.Int32@)">
+            <summary>
+            Close the current socket.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Bind(System.String)">
+            <summary>
+            Bind the specified endpoint.
+            </summary>
+            <param name="endpoint">A string consisting of a transport and an address, formatted as <c><em>transport</em>://<em>address</em></c>.</param>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Connect(System.String)">
+            <summary>
+            Connect the specified endpoint.
+            </summary>
+            <param name="endpoint">A string consisting of a transport and an address, formatted as <c><em>transport</em>://<em>address</em></c>.</param>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Disconnect(System.String)">
+            <summary>
+            Disconnect the specified endpoint.
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Zmq.FullDuplex.Zmq.ZSocket.Disconnect(System.String,System.Int32@)">
+            <summary>
+            Disconnect the specified endpoint.
+            </summary>
+            <param name="endpoint">A string consisting of a transport and an address, formatted as <c><em>transport</em>://<em>address</em></c>.</param>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketFlags.None">
+            <summary>
+            No socket flags are specified.
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketFlags.DontWait">
+            <summary>
+            The operation should be performed in non-blocking mode.
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketFlags.More">
+            <summary>
+            The message being sent is a multi-part message, and that further message parts are to follow.
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.PAIR">
+            <summary>
+            Exclusive Pair
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.PUB">
+            <summary>
+            Publish
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.SUB">
+            <summary>
+            Subscribe
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.REQ">
+            <summary>
+            Request
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.REP">
+            <summary>
+            Reply / Response
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.DEALER">
+            <summary>
+            Dealer
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.ROUTER">
+            <summary>
+            Router
+            </summary>
+            <remarks>
+            When receiving messages a <see cref="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.ROUTER"/> socket shall prepend a message
+            part containing the identity of the originating peer to the message before
+            passing it to the application. When sending messages a ZMQ_ROUTER socket shall remove
+            the first part of the message and use it to determine the identity of the peer the message
+            shall be routed to. If the peer does not exist anymore the message shall be silently discarded.
+            </remarks>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.PULL">
+            <summary>
+            Pull
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.PUSH">
+            <summary>
+            Push
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.XPUB">
+            <summary>
+            XPublisher
+            </summary>
+            <remarks>
+            Subscription message is a byte '1' (for subscriptions) or byte '0' (for unsubscriptions) followed by the subscription body.
+            </remarks>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.XSUB">
+            <summary>
+            XSubscriber
+            </summary>
+            <remarks>
+            Subscription message is a byte '1' (for subscriptions) or byte '0' (for unsubscriptions) followed by the subscription body.
+            </remarks>
+        </member>
+        <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketType.STREAM">
+            <summary>
+            Stream
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+    </members>
+</doc>

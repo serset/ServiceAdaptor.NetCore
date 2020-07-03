@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.CL.ClrZmq.ThreadWait</name>
+    </assembly>
+    <members>
+        <member name="F:Sers.CL.ClrZmq.ThreadWait.DeliveryClient.endpoint">
+            <summary>
+            地址。例如： "tcp://127.0.0.1:4502" 、 "ipc://4502"
+            </summary>
+        </member>
+        <member name="P:Sers.CL.ClrZmq.ThreadWait.DeliveryConnection.state">
+            <summary>
+            连接状态(0:waitForCertify; 2:certified; 4:waitForClose; 8:closed;)
+            </summary>
+        </member>
+        <member name="F:Sers.CL.ClrZmq.ThreadWait.DeliveryServer.connMap">
+            <summary>
+             connGuid -> conn
+            </summary>
+        </member>
+        <member name="F:Sers.CL.ClrZmq.ThreadWait.DeliveryServer.endpoint">
+            <summary>
+            地址。例如： "tcp://*:4502" 、 "ipc://4502"
+            </summary>
+        </member>
+        <member name="M:Sers.CL.ClrZmq.ThreadWait.DeliveryServer.Start">
+            <summary>
+            启动服务
+            </summary>
+        </member>
+        <member name="M:Sers.CL.ClrZmq.ThreadWait.DeliveryServer.Stop">
+            <summary>
+            停止服务
+            </summary>
+        </member>
+        <member name="P:Sers.CL.ClrZmq.ThreadWait.SocketPoller.OnReceiveMessage">
+            <summary>
+            请勿处理耗时操作，需立即返回。接收到客户端的数据事件
+            </summary>
+        </member>
+        <member name="M:Sers.CL.ClrZmq.ThreadWait.SocketPoller.Start(ZeroMQ.ZSocket)">
+            <summary>
+            初始化并开启后台线程
+            </summary>
+            <param name="socket"></param>
+        </member>
+    </members>
+</doc>

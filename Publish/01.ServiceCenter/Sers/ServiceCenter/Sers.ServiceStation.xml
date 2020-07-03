@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.ServiceStation</name>
+    </assembly>
+    <members>
+        <member name="M:Sers.ServiceStation.ServiceStation.AutoRun">
+            <summary>
+            使用默认步骤启动站点
+            </summary>
+        </member>
+        <member name="M:Sers.ServiceStation.ServiceStation.Init">
+            <summary>
+            初始化ServiceStation
+            </summary>
+        </member>
+        <member name="M:Sers.ServiceStation.ServiceStation.Start">
+            <summary>
+            是否成功启动站点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.ServiceStation.ServiceStation.LoadApi">
+            <summary>
+            从配置文件(appsettings.json::Sers.LocalApiService.ApiLoaders )  加载api加载器并加载api
+            从配置文件(appsettings.json::Sers.LocalApiService.StaticFileMap)加载静态文件映射器
+            </summary>
+        </member>
+        <member name="M:Sers.ServiceStation.ServiceStation.LoadSersApi(Sers.SersLoader.ApiLoaderConfig)">
+            <summary>
+            调用SsApi加载器加载api
+            </summary> 
+            <param name="config"></param>
+        </member>
+        <member name="M:Sers.ServiceStation.ServiceStation.LoadSersApi(System.Reflection.Assembly,Sers.SersLoader.ApiLoaderConfig)">
+            <summary>
+            调用SsApi加载器加载api
+            </summary>
+            <param name="assembly"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:Sers.ServiceStation.ServiceStation.StartStation">
+            <summary>
+            是否成功启动站点
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

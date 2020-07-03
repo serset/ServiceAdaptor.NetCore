@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.CL.Socket.ThreadWait</name>
+    </assembly>
+    <members>
+        <member name="P:Sers.CL.Socket.ThreadWait.DeliveryClient.Conn_OnGetFrame">
+            <summary>
+            请勿处理耗时操作，需立即返回。接收到客户端的数据事件
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Socket.ThreadWait.DeliveryClient.host">
+            <summary>
+            服务端 host地址(默认 "127.0.0.1")。例如： "127.0.0.1"、"sersms.com"。
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Socket.ThreadWait.DeliveryClient.port">
+            <summary>
+            服务端 监听端口号（默认 4501）。例如： 4501。
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Socket.ThreadWait.DeliveryClient.Close">
+            Disconnect from the host.
+        </member>
+        <member name="P:Sers.CL.Socket.ThreadWait.DeliveryConnection.state">
+            <summary>
+            连接状态(0:waitForCertify; 2:certified; 4:waitForClose; 8:closed;)
+            </summary>
+        </member>
+        <member name="P:Sers.CL.Socket.ThreadWait.DeliveryConnection.OnGetFrame">
+            <summary>
+            请勿处理耗时操作，需立即返回。接收到客户端的数据事件
+            </summary>
+        </member>
+        <member name="P:Sers.CL.Socket.ThreadWait.DeliveryConnection.socket">
+            <summary>
+            通信SOCKET
+            </summary>
+        </member>
+        <member name="P:Sers.CL.Socket.ThreadWait.DeliveryConnection.connectTime">
+            <summary>
+            连接时间
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Socket.ThreadWait.DeliveryServer.host">
+            <summary>
+            服务端 监听地址。若不指定则监听所有网卡。例如： "127.0.0.1"、"sersms.com"。
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Socket.ThreadWait.DeliveryServer.port">
+            <summary>
+            服务端 监听端口号(默认 4501)。例如： 4501。
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Socket.ThreadWait.DeliveryServer.listener">
+            <summary>
+            listener为null 表示没有监听线程在运行
+            </summary>
+        </member>
+        <member name="F:Sers.CL.Socket.ThreadWait.DeliveryServer.connMap">
+            <summary>
+             connHashCode -> DeliveryConnection
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Socket.ThreadWait.DeliveryServer.Start">
+            <summary>
+            启动服务
+            </summary>
+        </member>
+        <member name="M:Sers.CL.Socket.ThreadWait.DeliveryServer.Stop">
+            <summary>
+            停止服务
+            </summary>
+        </member>
+    </members>
+</doc>

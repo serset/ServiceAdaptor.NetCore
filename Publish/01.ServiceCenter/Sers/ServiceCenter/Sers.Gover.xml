@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sers.Gover</name>
+    </assembly>
+    <members>
+        <member name="T:Sers.Gover.Base.ApiLoadBalancingMng">
+            <summary>
+            当前可调用的ApiService
+            </summary>
+        </member>
+        <member name="M:Sers.Gover.Base.ApiLoadBalancingMng.GetCurApiNodeByLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Api.RouteMap.ERouteType@)">
+            <summary>
+            通过负载均衡算法 获取可调用的ApiNode
+            </summary>
+            <param name="rpcData"></param>
+            <param name="routeType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sers.Gover.Base.ApiLoadBalancingMng_RESTful">
+            <summary>
+            当前可调用的ApiService
+            </summary>
+        </member>
+        <member name="M:Sers.Gover.Base.ApiLoadBalancingMng_RESTful.GetHttpMethod(Sers.ServiceCenter.Entity.ApiNode)">
+            <summary>
+            如 "GET"
+            </summary>
+            <param name="apiNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Base.ApiLoadBalancingMng_RESTful.GetCurApiNodeByLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Api.RouteMap.ERouteType@)">
+            <summary>
+            通过负载均衡算法 获取可调用的ApiNode
+            </summary>
+            <param name="rpcData"></param>
+            <param name="routeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Base.GoverManage.ServiceStation_UpdateStationInfo(Sers.ServiceCenter.Entity.ServiceStation)">
+            <summary>
+            更新服务站点设备硬件信息
+            </summary>
+            <param name="serviceStation"></param>
+        </member>
+        <member name="F:Sers.Gover.Base.GoverManage.apiScopeEventList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sers.Gover.Base.GoverManage.AddApiScopeEvent(System.Func{Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage,System.Action{System.Object,System.Collections.Generic.List{System.ArraySegment{System.Byte}}}})">
+            <summary>
+            在调用api前调用onScope，若onScope返回的结果（onDispose）不为空，则在api调用结束前调用onDispose
+            </summary>
+            <param name="apiScopeEvent"></param>
+        </member>
+        <member name="F:Sers.Gover.Base.Model.ApiStationData.apiServices">
+            <summary>
+            route ApiService
+            </summary>
+        </member>
+        <member name="P:Sers.Gover.Base.Model.ApiStationData.qps">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Sers.Gover.Base.Model.LoadBalancingForApiNode.apiDesc">
+            <summary>
+            TODO:待完善
+            </summary>
+        </member>
+        <member name="F:Sers.Gover.Base.Model.ServiceStationData.startTime">
+            <summary>
+            服务站点开启时间
+            </summary>
+        </member>
+        <member name="F:Sers.Gover.Base.Model.ServiceStationData.status">
+            <summary>
+            状态：正常、手动关闭、断线
+            </summary>
+        </member>
+        <member name="F:Sers.Gover.Base.ServiceStationMng.serviceStation_ConnKey_Map">
+            <summary>
+            connKey 和 服务站点 的映射
+            </summary>
+        </member>
+        <member name="F:Sers.Gover.Base.ServiceStationMng.serviceStationKey_Map">
+            <summary>
+             serviceStationKey 和 服务站点 的映射
+            </summary>
+        </member>
+        <member name="M:Sers.Gover.Base.ServiceStationMng.ServiceStation_Add(Sers.ServiceCenter.Entity.ServiceStation)">
+            <summary>
+            添加并启用站点
+            </summary>
+            <param name="serviceStation"></param>
+        </member>
+        <member name="M:Sers.Gover.Base.ServiceStationMng.ServiceStation_UpdateStationInfo(Sers.ServiceCenter.Entity.ServiceStation)">
+            <summary>
+            更新服务站点设备硬件信息
+            </summary>
+            <param name="serviceStation"></param>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.ApiStationController.GetAll">
+            <summary>
+            获取所有ApiStation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.ApiStationController.Pause(System.String)">
+            <summary>
+            暂停指定的ApiStation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.ApiStationController.Start(System.String)">
+            <summary>
+            启用指定的ApiStation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.RateLimitController.GetAll">
+            <summary>
+            获取所有限流项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.RateLimitController.Remove(System.String)">
+            <summary>
+            移除指定限流项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.RateLimitController.Add(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            添加限流项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.ServiceStationController.GetAll">
+            <summary>
+            获取所有ServiceStation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.ServiceStationController.Pause(System.String)">
+            <summary>
+            暂停指定的服务站点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.ServiceStationController.Start(System.String)">
+            <summary>
+            启用指定的服务站点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Controllers.ApiControllers.ServiceStationController.Stop(System.String)">
+            <summary>
+            启用指定的服务站点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.Persistence.Persistence_ApiDesc.ApiDesc_SaveApiStationToJsonFile(Sers.Gover.Base.Model.ApiStationData)">
+            <summary>
+            持久化ApiStation所有ApiDesc（demo: /Data/Sers/Gover/ApiDesc/_Sys_.json）
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Sers.Gover.Persistence.Persistence_Counter.SaveCounterToJsonFile(Sers.Gover.Base.ApiStationMng)">
+            <summary>
+            持久化ApiStation所有Counter（demo: /Data/Sers/Gover/Counter.json）
+            </summary>
+            <param name="apiStationMng"></param>
+        </member>
+        <member name="T:Sers.Gover.RateLimit.FixedWindow">
+            <summary>
+            固定时间窗口限流
+            </summary>
+        </member>
+        <member name="P:Sers.Gover.RateLimit.FixedWindow.rateLimitType">
+            <summary>
+            限流规则名称,一般对应一个类
+            </summary>
+        </member>
+        <member name="P:Sers.Gover.RateLimit.FixedWindow.rateLimitKey">
+            <summary>
+            限流项名称，必须唯一
+            </summary>
+        </member>
+        <member name="F:Sers.Gover.RateLimit.FixedWindow.reqLimit">
+            <summary>
+            时间窗口内最大请求数
+            </summary>
+        </member>
+        <member name="F:Sers.Gover.RateLimit.FixedWindow.msInterval">
+            <summary>
+            时间窗口ms
+            </summary>
+        </member>
+        <member name="M:Sers.Gover.RateLimit.IRateLimit.BeforeLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage)">
+            <summary>
+            若返回不为null，则对应服务被限流(服务直接返回对应错误)
+            </summary>
+            <param name="rpcData"></param>
+            <param name="requestMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.RateLimit.IRateLimit.BeforeCallRemoteApi(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage,Sers.ServiceCenter.Entity.ApiNode)">
+            <summary>
+            若返回不为null，则对应服务被限流(服务直接返回对应错误)
+            </summary>
+            <param name="rpcData"></param>
+            <param name="requestMessage"></param>
+            <param name="apiNode"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Sers.Gover.RateLimit.RateLimitMng.limitType_Map">
+            <summary>
+            rateLimitType -> RateLimitType 限制
+            </summary>
+        </member>
+        <member name="F:Sers.Gover.RateLimit.RateLimitMng.limit_Map">
+            <summary>
+            rateLimitKey -> IRateLimit 映射
+            </summary>
+        </member>
+        <member name="M:Sers.Gover.RateLimit.RateLimitMng.RateLimit_GetAll">
+            <summary>
+            获取所有限流项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.RateLimit.RateLimitMng.BeforeLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage)">
+            <summary>
+            若返回不为null，则对应服务被限流(服务直接返回对应错误)
+            </summary>
+            <param name="rpcData"></param>
+            <param name="requestMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Gover.RateLimit.RateLimitMng.BeforeCallRemoteApi(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage,Sers.ServiceCenter.Entity.ApiNode)">
+            <summary>
+            若返回不为null，则对应服务被限流(服务直接返回对应错误)
+            </summary>
+            <param name="rpcData"></param>
+            <param name="requestMessage"></param>
+            <param name="apiNode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sers.Gover.Service.SersEvent.SersEventService">
+            <summary>
+            目前有 SersEvent.ServiceStation.Start  、 SersEvent.ServiceStation.Pause、 SersEvent.ServiceStation.Add、 SersEvent.ServiceStation.Remove
+            </summary>
+        </member>
+        <member name="M:Vit.Extensions.ApiNodeExtensions.StopReason_Remove(Sers.ServiceCenter.Entity.ApiNode,System.String)">
+            <summary>
+            返回 移除后是否仍有StopReason
+            </summary>
+            <param name="data"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.ServiceCenter_GoverExtensions.UseGover(Sers.ServiceCenter.ServiceCenter)">
+            <summary>
+            使用 Gover 服务治理 模块
+            </summary>       
+            <param name="serviceCenter"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Version>1.0.10.21</Version>
+    <Description>https://github.com/sersms/ServiceAdaptor.NetCore/tree/1.0/release</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.NetCore.Be.Eureka.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceAdaptor.NetCore.MinHttp\ServiceAdaptor.NetCore.MinHttp.csproj" />
+    <ProjectReference Include="..\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Vit.WebHost" Version="2.1.1.352" />    
+    <PackageReference Include="Blueearth" Version="3.0.24" />
+ 
+    
+    <Reference Include="EurekaRestTemplate">
+      <HintPath>dll\EurekaRestTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="Steeltoe.Discovery.ClientAutofac">
+      <HintPath>dll\Steeltoe.Discovery.ClientAutofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Steeltoe.Discovery.ClientCore">
+      <HintPath>dll\Steeltoe.Discovery.ClientCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Steeltoe.Discovery.EurekaBase">
+      <HintPath>dll\Steeltoe.Discovery.EurekaBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+</Project>
