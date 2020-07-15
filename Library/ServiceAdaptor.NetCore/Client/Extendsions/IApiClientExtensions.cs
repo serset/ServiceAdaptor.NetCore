@@ -11,6 +11,7 @@
 
 using ServiceAdaptor.NetCore.Client;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vit.Core.Util.ComponentModel.Data;
 
@@ -47,7 +48,7 @@ namespace Vit.Extensions
         }
 
 
-        public static async Task<ApiResponse<ReturnType>> BeforeCallApi<ReturnType>(this IApiClient apiClient,ApiRequest req)
+        public static async Task<ApiResponse<ReturnType>> BeforeCallApi<ReturnType>(this IApiClient apiClient, ApiRequest req)
         {
             if (apiClient.apiEvents != null)
             {
@@ -73,13 +74,15 @@ namespace Vit.Extensions
         /// <param name="url"></param>
         /// <param name="arg"></param>
         /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <param name="headers">请求的header,可不指定</param>
         /// <returns></returns>
-        public static ReturnType CallApi<ReturnType>(this IApiClient Instance, string url, Object arg, string httpMethod = null)
+        public static ReturnType CallApi<ReturnType>(this IApiClient Instance, string url, Object arg,
+            string httpMethod = null, IDictionary<string, string> headers = null)
         {
-            var response = Instance.CallApi<ReturnType>(new ApiRequest { url = url, arg = arg, httpMethod = httpMethod });
+            var response = Instance.CallApi<ReturnType>(new ApiRequest { url = url, arg = arg, httpMethod = httpMethod, headers = headers });
             if (response == null)
             {
-                return default(ReturnType);
+                return default;
             }
             return response.data;
         }
@@ -92,15 +95,17 @@ namespace Vit.Extensions
         /// <param name="url"></param>
         /// <param name="arg"></param>
         /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <param name="headers">请求的header,可不指定</param>
         /// <returns></returns>
-        public static async Task<ReturnType> CallApiAsync<ReturnType>(this IApiClient Instance, string url, Object arg, string httpMethod = null)
+        public static async Task<ReturnType> CallApiAsync<ReturnType>(this IApiClient Instance, string url, Object arg,
+            string httpMethod = null, IDictionary<string, string> headers = null)
         {
-            var response =  await Instance.CallApiAsync<ReturnType>(new ApiRequest { url = url, arg = arg, httpMethod = httpMethod });
+            var response = await Instance.CallApiAsync<ReturnType>(new ApiRequest { url = url, arg = arg, httpMethod = httpMethod, headers = headers });
             if (response == null)
             {
-                return default(ReturnType);
+                return default;
             }
-            return response.data;             
+            return response.data;
         }
 
         #endregion
@@ -146,7 +151,7 @@ namespace Vit.Extensions
 
         #endregion
 
-        #region CallVitApi by route arg ...
+        #region CallVitApi by route arg httpMethod headers
 
         /// <summary>
         /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
@@ -156,10 +161,12 @@ namespace Vit.Extensions
         /// <param name="route"></param>
         /// <param name="arg"></param>
         /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <param name="headers">请求的header,可不指定</param>
         /// <returns></returns>
-        public static ReturnType CallVitApi<ReturnType>(this IApiClient Instance,string route, Object arg, string httpMethod = null)
-        {         
-            return CallVitApi<ReturnType>(Instance, new ApiRequest { url = route, arg = arg, httpMethod = httpMethod });
+        public static ReturnType CallVitApi<ReturnType>(this IApiClient Instance, string route, Object arg,
+            string httpMethod = null, IDictionary<string, string> headers = null)
+        {
+            return CallVitApi<ReturnType>(Instance, new ApiRequest { url = route, arg = arg, httpMethod = httpMethod, headers = headers });
         }
 
 
@@ -171,10 +178,12 @@ namespace Vit.Extensions
         /// <param name="route"></param>
         /// <param name="arg"></param>
         /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <param name="headers">请求的header,可不指定</param>
         /// <returns></returns>
-        public static async Task<ReturnType> CallVitApiAsync<ReturnType>(this IApiClient Instance, string route, Object arg, string httpMethod = null)
+        public static async Task<ReturnType> CallVitApiAsync<ReturnType>(this IApiClient Instance, string route, Object arg,
+            string httpMethod = null, IDictionary<string, string> headers = null)
         {
-            return await CallVitApiAsync<ReturnType>(Instance, new ApiRequest { url = route, arg = arg, httpMethod = httpMethod });          
+            return await CallVitApiAsync<ReturnType>(Instance, new ApiRequest { url = route, arg = arg, httpMethod = httpMethod, headers = headers });
         }
         #endregion
 
