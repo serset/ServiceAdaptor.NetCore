@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.10.21</Version>
+    <Version>1.0.11.65</Version>
     <Description>https://github.com/sersms/ServiceAdaptor.NetCore/tree/1.0/release</Description>
   </PropertyGroup>
 
@@ -16,7 +16,7 @@
 
   <ItemGroup>  
     <!-- Sers --> 
-    <PackageReference Include="Sers.Serslot" Version="2.1.1.352" />
+    <PackageReference Include="Sers.Serslot" Version="2.1.1.378" />
   </ItemGroup>
   
   

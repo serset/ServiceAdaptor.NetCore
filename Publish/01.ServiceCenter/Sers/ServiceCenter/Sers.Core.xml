@@ -784,7 +784,12 @@
             
              </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Sers.Core.Module.Api.Rpc.RpcContextData.UnpackOriData(System.ArraySegment{System.Byte})" -->
+        <member name="M:Sers.Core.Module.Api.Rpc.RpcContextData.UnpackOriData(System.ArraySegment{System.Byte})">
+             <summary>
+            
+             </summary>
+             <param name="oriData"></param>
+        </member>
         <member name="M:Sers.Core.Module.Api.Rpc.RpcContextData.PackageOriData">
             <summary>
             

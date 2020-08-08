@@ -132,6 +132,7 @@
             Disconnect the specified endpoint.
             </summary>
             <param name="endpoint">A string consisting of a transport and an address, formatted as <c><em>transport</em>://<em>address</em></c>.</param>
+            <param name="errno"></param>
         </member>
         <member name="F:Sers.CL.Zmq.FullDuplex.Zmq.ZSocketFlags.None">
             <summary>
