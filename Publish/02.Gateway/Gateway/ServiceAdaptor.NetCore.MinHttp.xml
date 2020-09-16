@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ServiceAdaptor.NetCore.MinHttp</name>
+    </assembly>
+    <members>
+        <member name="M:ServiceAdaptor.NetCore.MinHttp.ApiClient.CallApi``1(ServiceAdaptor.NetCore.Client.ApiRequest)">
+            <summary>
+            
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServiceAdaptor.NetCore.MinHttp.ApiClient.CallApiAsync``1(ServiceAdaptor.NetCore.Client.ApiRequest)">
+            <summary>
+            
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

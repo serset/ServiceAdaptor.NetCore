@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ServiceAdaptor.NetCore</name>
+    </assembly>
+    <members>
+        <member name="M:ServiceAdaptor.NetCore.Client.ApiClient.CallApiAsync``1(System.String,System.Object,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServiceAdaptor.NetCore.Client.ApiClient.CallApi``1(System.String,System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <returns></returns>
+        </member>
+        <member name="M:ServiceAdaptor.NetCore.Client.ApiClient.CallVitApi``1(System.String,System.Object,System.String)">
+            <summary>
+            接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <returns></returns>
+        </member>
+        <member name="M:ServiceAdaptor.NetCore.Client.ApiClient.CallVitApiAsync``1(System.String,System.Object,System.String)">
+            <summary>
+            接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <returns></returns>
+        </member>
+        <member name="F:ServiceAdaptor.NetCore.Client.ApiRequest.url">
+            <summary>
+            为相对路径，如 "/api/Values/get"
+            </summary>
+        </member>
+        <member name="F:ServiceAdaptor.NetCore.Client.ApiRequest.arg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ServiceAdaptor.NetCore.Client.ApiRequest.httpMethod">
+            <summary>
+            可为 GET、POST、DELETE、PUT等,可不指定
+            </summary>
+        </member>
+        <member name="F:ServiceAdaptor.NetCore.Client.ApiRequest.headers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ServiceAdaptor.NetCore.Client.ApiResponse`1.IsSuccessStatusCode">
+            <summary>
+            返回结果:
+                A value that indicates if the HTTP response was successful. true if System.Net.Http.HttpResponseMessage.StatusCode
+                was in the range 200-299; otherwise false.
+            </summary>
+        </member>
+        <member name="M:ServiceAdaptor.NetCore.Client.IApiClient.CallApi``1(ServiceAdaptor.NetCore.Client.ApiRequest)">
+            <summary>
+            
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServiceAdaptor.NetCore.Client.IApiClient.CallApiAsync``1(ServiceAdaptor.NetCore.Client.ApiRequest)">
+            <summary>
+            
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Vit.Extensions.IApiClientExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.AddEvent(ServiceAdaptor.NetCore.Client.IApiClient,ServiceAdaptor.NetCore.Client.IApiEvent)">
+            <summary>
+            
+            </summary>
+            <param name="Instance"></param>
+            <param name="apiEvent"></param>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.RemoveEvent(ServiceAdaptor.NetCore.Client.IApiClient,ServiceAdaptor.NetCore.Client.IApiEvent)">
+            <summary>
+            
+            </summary>
+            <param name="Instance"></param>
+            <param name="apiEvent"></param>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.CallApi``1(ServiceAdaptor.NetCore.Client.IApiClient,System.String,System.Object,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <param name="Instance"></param>
+            <param name="url"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="headers">请求的header,可不指定</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.CallApiAsync``1(ServiceAdaptor.NetCore.Client.IApiClient,System.String,System.Object,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="url"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="headers">请求的header,可不指定</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.CallVitApi``1(ServiceAdaptor.NetCore.Client.IApiClient,ServiceAdaptor.NetCore.Client.ApiRequest)">
+            <summary>
+            接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="Instance"></param>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.CallVitApiAsync``1(ServiceAdaptor.NetCore.Client.IApiClient,ServiceAdaptor.NetCore.Client.ApiRequest)">
+            <summary>
+            接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="Instance"></param>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.CallVitApi``1(ServiceAdaptor.NetCore.Client.IApiClient,System.String,System.Object,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="Instance"></param>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="headers">请求的header,可不指定</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.IApiClientExtensions.CallVitApiAsync``1(ServiceAdaptor.NetCore.Client.IApiClient,System.String,System.Object,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="Instance"></param>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="headers">请求的header,可不指定</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Extensions.IWebHostBuilderExtensions_UseServiceAdaptor.LoadAssemblyByFile(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assemblyFile"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

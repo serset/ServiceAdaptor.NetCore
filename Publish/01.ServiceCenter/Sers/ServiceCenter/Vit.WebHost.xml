@@ -40,6 +40,11 @@
             是否异步运行.Runs a web application and returns a Task that only completes when the token is triggered or shutdown is triggered.
             </summary>      
         </member>
+        <member name="P:Vit.WebHost.StaticFilesConfig.requestPath">
+            <summary>
+            请求路径（可不指定）。demo："/file/static"。The relative request path that maps to static resources
+            </summary>       
+        </member>
         <member name="P:Vit.WebHost.StaticFilesConfig.rootPath">
             <summary>
             静态文件路径。可为相对路径或绝对路径。若为空或空字符串则为默认路径（wwwroot）。demo:"wwwroot"

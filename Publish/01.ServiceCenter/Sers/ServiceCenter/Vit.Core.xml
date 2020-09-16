@@ -991,6 +991,16 @@
             名称
             </summary>
         </member>
+        <member name="T:Vit.Core.Util.ComponentModel.Model.SsTypeAttribute">
+            <summary>
+            指定类型
+            </summary>
+        </member>
+        <member name="P:Vit.Core.Util.ComponentModel.Model.SsTypeAttribute.Value">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:Vit.Core.Util.ComponentModel.Query.SortItem.field">
             <summary>
             字段名(可多级，例如 "parent.name")
