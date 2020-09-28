@@ -69,6 +69,33 @@ namespace ServiceAdaptor.NetCore.Client
         /// <summary>
         /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
         /// </summary>
+        /// <param name="route"></param>
+        /// <param name="arg"></param>
+        /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <returns></returns>
+        public static void CallVitApi(string route, Object arg, string httpMethod = null)
+        {
+            Instance.CallVitApi(route, arg, httpMethod);
+        }
+
+
+        /// <summary>
+        /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+        /// </summary>     
+        /// <param name="route"></param>
+        /// <param name="arg"></param>
+        /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <returns></returns>
+        public static async Task CallVitApiAsync(string route, Object arg, string httpMethod = null)
+        {
+            await Instance.CallVitApiAsync(route, arg, httpMethod);
+        }
+
+
+
+        /// <summary>
+        /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+        /// </summary>
         /// <typeparam name="ReturnType"></typeparam>
         /// <param name="route"></param>
         /// <param name="arg"></param>
