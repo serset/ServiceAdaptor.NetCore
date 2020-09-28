@@ -116,6 +116,39 @@ namespace Vit.Extensions
 
         /// <summary>
         /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+        /// </summary> 
+        /// <param name="Instance"></param>
+        /// <param name="arg"></param>
+        /// <returns></returns>
+        public static void CallVitApi(this IApiClient Instance, ApiRequest arg)
+        {
+            var apiRet = Instance.CallApi<ApiReturn>(arg)?.data;
+            if (apiRet?.success != true)
+            {
+                throw (apiRet?.error).ToException("服务出错");
+            }   
+        }
+
+
+        /// <summary>
+        /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+        /// </summary>
+        /// <param name="Instance"></param>
+        /// <param name="arg"></param>
+        /// <returns></returns>
+        public static async Task CallVitApiAsync(this IApiClient Instance, ApiRequest arg)
+        {
+            var apiRet = (await Instance.CallApiAsync<ApiReturn>(arg))?.data;
+            if (apiRet?.success != true)
+            {
+                throw (apiRet?.error).ToException("服务出错");
+            }      
+        }
+
+
+
+        /// <summary>
+        /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
         /// </summary>
         /// <typeparam name="ReturnType"></typeparam>
         /// <param name="Instance"></param>
@@ -149,9 +182,44 @@ namespace Vit.Extensions
             return apiRet.data;
         }
 
+
         #endregion
 
         #region CallVitApi by route arg httpMethod headers
+
+        /// <summary>
+        /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+        /// </summary>
+        /// <param name="Instance"></param>
+        /// <param name="route"></param>
+        /// <param name="arg"></param>
+        /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <param name="headers">请求的header,可不指定</param>
+        /// <returns></returns>
+        public static void CallVitApi(this IApiClient Instance, string route, Object arg,
+            string httpMethod = null, IDictionary<string, string> headers = null)
+        {
+            CallVitApi(Instance, new ApiRequest { url = route, arg = arg, httpMethod = httpMethod, headers = headers });
+        }
+
+
+        /// <summary>
+        /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
+        /// </summary>
+        /// <param name="Instance"></param>
+        /// <param name="route"></param>
+        /// <param name="arg"></param>
+        /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+        /// <param name="headers">请求的header,可不指定</param>
+        /// <returns></returns>
+        public static async Task CallVitApiAsync(this IApiClient Instance, string route, Object arg,
+            string httpMethod = null, IDictionary<string, string> headers = null)
+        {
+            await CallVitApiAsync(Instance, new ApiRequest { url = route, arg = arg, httpMethod = httpMethod, headers = headers });
+        }
+
+
+
 
         /// <summary>
         /// 接口返回数据为 ApiReturn格式，若接口返回不成功（apiRet?.success != true），则直接抛异常。
@@ -185,6 +253,7 @@ namespace Vit.Extensions
         {
             return await CallVitApiAsync<ReturnType>(Instance, new ApiRequest { url = route, arg = arg, httpMethod = httpMethod, headers = headers });
         }
+
         #endregion
 
     }
