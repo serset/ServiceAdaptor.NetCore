@@ -84,10 +84,11 @@
             connKey 和 服务站点 的映射
             </summary>
         </member>
-        <member name="F:Sers.Gover.Base.ServiceStationMng.serviceStationKey_Map">
+        <member name="F:Sers.Gover.Base.ServiceStationMng.serviceStationKey_UsageStatus_Map">
             <summary>
              serviceStationKey 和 服务站点 的映射
             </summary>
+            
         </member>
         <member name="M:Sers.Gover.Base.ServiceStationMng.ServiceStation_Add(Sers.ServiceCenter.Entity.ServiceStation)">
             <summary>
@@ -99,7 +100,14 @@
             <summary>
             更新服务站点设备硬件信息
             </summary>
-            <param name="serviceStation"></param>
+            <param name="newServiceStation"></param>
+        </member>
+        <member name="T:Sers.Gover.Base.ServiceStationMng.Reference`2">
+            <summary>
+            线程不安全
+            </summary>
+            <typeparam name="KeyType"></typeparam>
+            <typeparam name="ValueType"></typeparam>
         </member>
         <member name="M:Sers.Gover.Controllers.ApiControllers.ApiStationController.GetAll">
             <summary>

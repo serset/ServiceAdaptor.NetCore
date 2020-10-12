@@ -592,7 +592,7 @@
             error可为null（若为null,则返回空Exception）
             </summary>
             <param name="error"></param>
-            <param name="message"></param>
+            <param name="defaultMessage"></param>
             <returns></returns>
         </member>
         <member name="T:Vit.Core.Module.Log.Level">
@@ -1754,17 +1754,68 @@
             线程名称
             </summary>
         </member>
-        <member name="M:Vit.Core.Util.XmlComment.XmlMng.AddXml(System.String)">
+        <member name="M:Vit.Core.Util.XmlComment.XmlCommentMng.AddXml(System.String)">
             <summary>
             添加xml注释
             </summary>
             <param name="xmlFilePath"></param>
         </member>
-        <member name="M:Vit.Core.Util.XmlComment.XmlMng.AddBin(System.String)">
+        <member name="M:Vit.Core.Util.XmlComment.XmlCommentMng.AddBin(System.String)">
             <summary>
             添加bin目录下的所有xml注释文件
             </summary>
             <param name="path"></param>
+        </member>
+        <member name="T:Vit.Core.Util.Xml.XmlHelp">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:Vit.Core.Util.Xml.XmlHelp.XmlStringToJson(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xmlString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Util.Xml.XmlHelp.JsonToXmlDocument(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            
+            </summary>
+            <param name="joXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Util.Xml.XmlHelp.JsonToXmlString(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            直接字符串拼接构建XmlString
+            </summary>
+            <param name="joXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Util.Xml.XmlHelp.StrToXmlStr(System.String)">
+            <summary>
+            <para>向xml 的 内容 转换。                                                         </para>
+            <para>例如 转换为  &lt;a title=""&gt;ok&lt;/a&gt;  中a标签的内容体（innerHTML）    </para>
+            <para>或 转换为  &lt;a title=""&gt;ok&lt;/a&gt;  中title的值。                     </para>
+            <para>                                                                             </para>
+            <para>转换 " &amp;  &lt;   &gt;  为  &amp;quot;  &amp;amp;   &amp;lt;   &amp;gt; 。</para>
+            <para>注： ' 对应 &amp;apos; ，但有些浏览器不支持，故此函数不转换。                </para>
+            </summary>
+            <param name="str">若为 空 或 空字符串，则原样返回</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Util.Xml.XmlHelp.AppendXmlStr(System.Text.StringBuilder,System.String)">
+            <summary>
+            <para>向xml 的 内容 转换 并追加到 builder。                                         </para>
+            <para>例如 转换为  &lt;a title=""&gt;ok&lt;/a&gt;  中a标签的内容体（innerHTML）     </para>
+            <para>或 转换为  &lt;a title=""&gt;ok&lt;/a&gt;  中title的值。                      </para>
+            <para>                                                                              </para>
+            <para>转换 " &amp;  &lt;   &gt;  为  &amp;quot;  &amp;amp;   &amp;lt;   &amp;gt; 。 </para>
+            <para>注： ' 对应 &amp;apos; ，但有些浏览器不支持，故此函数不转换。                 </para>
+            </summary>
+            <param name="builder">不可为空</param>
+            <param name="str">若为 空 或 空字符串，则原样返回</param>
+            <returns>原 builder</returns>
         </member>
     </members>
 </doc>

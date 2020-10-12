@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
  
     <!-- Sers -->
-    <PackageReference Include="Sers.Core" Version="2.1.1.404" />
+    <PackageReference Include="Sers.Core" Version="2.1.1.410" />
   </ItemGroup>
 
   <ItemGroup>

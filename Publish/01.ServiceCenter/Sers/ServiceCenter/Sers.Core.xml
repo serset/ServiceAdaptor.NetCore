@@ -171,7 +171,7 @@
         </member>
         <member name="M:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.PackageReqRepFrame(System.Int64,System.Collections.Generic.List{System.ArraySegment{System.Byte}},System.Collections.Generic.List{System.ArraySegment{System.Byte}}@)">
             <summary>
-            注：调用后，oriMsg会错乱
+            注：调用后，不改变oriMsg
             </summary>
             <param name="reqKey"></param>
             <param name="oriMsg"></param>

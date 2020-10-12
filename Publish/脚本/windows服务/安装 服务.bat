@@ -17,9 +17,11 @@ cd /d ../..
 set publishPath=%cd%
 cd /d %basePath%
  
-::(x.3)
+::(x.3)获取管理员权限
+if "%1%" neq "noadmin" (
 echo 获取管理员权限
-call:GetAdmin 
+call:GetAdmin
+) 
 
 
 ::(x.4)处理
@@ -32,7 +34,9 @@ call:%action% "12.ServiceConsumer" "ServiceConsumer.dll" "\04.服务站点\12.Servic
 
 ::(x.5)提示成功并结束
 echo 操作成功！ 
-pause
+::pause
+:: 延时10s
+ping /n 10 127.0.0.1>nul
 exit
  
 
