@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.0.0" />
     
     <!-- Sers -->
-    <PackageReference Include="Vit.Core" Version="2.1.1.410" /> 
+    <PackageReference Include="Vit.Core" Version="2.1.1.441" /> 
   </ItemGroup> 
 
  
