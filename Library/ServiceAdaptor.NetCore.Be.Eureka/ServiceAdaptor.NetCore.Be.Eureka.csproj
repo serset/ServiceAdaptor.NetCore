@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>1.0.15.116</Version>
+    <Version>1.1.274</Version>
     <Description>https://github.com/sersms/ServiceAdaptor.NetCore/tree/1.0/release</Description>
   </PropertyGroup>
 
@@ -17,8 +17,8 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Vit.WebHost" Version="2.1.1.441" />    
-    <PackageReference Include="Blueearth" Version="3.0.24" />
+    <PackageReference Include="Vit.WebHost" Version="2.1.1.449" />    
+    <PackageReference Include="Blueearth" Version="4.0.29" />
  
     
     <Reference Include="EurekaRestTemplate">

@@ -1,2 +1,2 @@
-cd /root/app/Gateway
+cd /root/app/gateway
 dotnet ServiceAdaptor.NetCore.Gateway.dll
