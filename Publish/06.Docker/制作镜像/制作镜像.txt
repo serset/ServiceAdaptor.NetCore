@@ -3,7 +3,7 @@
 # docker login -u sersms -p xxxxxxxxx
  
 
-#把本文件所在目录下的文件夹拷贝到 /home/image 
+#把本文件所在目录下的文件夹拷贝到 /root/image 
 
 cd /root
 cd image 
