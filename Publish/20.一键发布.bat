@@ -13,10 +13,10 @@ for /R %%s in (发布-*) do (
 )  
 
 cd /d ..\制作docker镜像
-call "docker镜像-1.创建软链接.bat"
+call "docker镜像-1.复制文件.bat"
 
 echo 发布完成
 echo 发布完成
 echo 发布完成
 
-:: pause
+pause

@@ -17,18 +17,28 @@
 
 cd /root/docker
 
+
 cd Gateway
-docker run --name=gateway --restart=always --net=host -d -v /etc/localtime:/etc/localtime -v $PWD/appsettings.json:/root/app/Gateway/appsettings.json -v $PWD/wwwroot:/root/app/Gateway/wwwroot  sersms/adaptor_gateway:1.0
+
+docker run --name=gateway --restart=always -d \
+-p 4580:4580 \
+-v /etc/localtime:/etc/localtime \
+-v $PWD/appsettings.json:/root/app/Gateway/appsettings.json \
+-v $PWD/wwwroot:/root/app/Gateway/wwwroot \
+-v $PWD/Logs:/root/app/Gateway/Logs \
+sersms/adaptor_gateway
+
 cd .. 
 
-//精简
-docker run --name=gateway --restart=always --net=host -d sersms/adaptor_gateway:1.0
+
+#精简
+docker run --name=gateway --restart=always -d -p 4580:4580 sersms/adaptor_gateway
 
 
 #(x.3)应用已经运行
-   可在文件夹/root/docker/Gateway/Logs 中查看日志
+   可在文件夹Gateway/Logs 中查看日志
 
-通信端口 tcp://ip:4582
+#地址 http://ip:4580
 
 #---------------------------------------
 #常用命令

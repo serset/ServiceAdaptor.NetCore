@@ -1,4 +1,4 @@
-﻿#构建多架构镜像
+#构建多架构镜像
 
 # docker login -u sersms -p xxxxxxxxx
 
@@ -60,7 +60,7 @@ docker push sersms/adaptor_gateway
 
 
 
-#强制删除镜像名称中包含“adaptor_gateway”的镜像
+#强制删除镜像名称中包含adaptor_gateway的镜像
 #docker rmi --force $(docker images | grep adaptor_gateway | awk '{print $3}')
 
 
