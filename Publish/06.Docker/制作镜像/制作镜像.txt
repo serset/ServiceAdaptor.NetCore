@@ -11,14 +11,14 @@ cd image
  
 #构建镜像并推送到 镜像仓库
 cd adaptor_gateway
-docker build -t sersms/adaptor_gateway:1.1.274  . 
-docker push sersms/adaptor_gateway:1.1.274
+docker build -t sersms/adaptor_gateway:1.1.281  . 
+docker push sersms/adaptor_gateway:1.1.281
 cd ..
  
 
 #添加tag latest
-docker pull sersms/adaptor_gateway:1.1.274
-docker tag sersms/adaptor_gateway:1.1.274 sersms/adaptor_gateway
+docker pull sersms/adaptor_gateway:1.1.281
+docker tag sersms/adaptor_gateway:1.1.281 sersms/adaptor_gateway
 docker push sersms/adaptor_gateway
 
 
@@ -27,7 +27,7 @@ docker push sersms/adaptor_gateway
 
 
 #强制删除镜像名称中包含adaptor_gateway的镜像
-#docker rmi --force $(docker images | grep adaptor_gateway | awk '{print $3}')
+# docker rmi --force $(docker images | grep adaptor_gateway | awk '{print $3}')
 
 
 
