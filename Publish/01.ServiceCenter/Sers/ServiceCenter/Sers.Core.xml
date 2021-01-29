@@ -954,21 +954,6 @@
             消息订阅者   msgTitle ->    connList
             </summary>
         </member>
-        <member name="M:Sers.Core.Module.Reflection.ObjectLoader.CreateInstance(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="assemblyFile">如： "Sers.CL.Zmq.FullDuplex.dll"</param>
-            <param name="className">如： "Sers.CL.Zmq.FullDuplex.OrganizeClientBuilder"</param>
-            <returns></returns>
-        </member>
-        <member name="M:Sers.Core.Module.Reflection.ObjectLoader.LoadAssemblyByFile(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="assemblyFile"></param>
-            <returns></returns>
-        </member>
         <member name="F:Sers.Core.Module.Valid.Sers1.RpcVerify1.EValidType.Equal">
             <summary>
             { "type":"Equal","value":"Logined"}

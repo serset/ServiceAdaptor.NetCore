@@ -185,27 +185,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Sers.Hardware.OsShell.Shell(System.String,System.String,System.String@,System.Nullable{System.Int32},System.String)">
-            <summary>
-            
-            </summary>
-            <param name="fileName"> 如 reboot </param>
-            <param name="arguments"></param>
-            <param name="output"></param>
-            <param name="millisecondsOfWait">等待时间，默认4000。若不指定则永久等待</param>
-            <param name="WorkingDirectory">sets the working directory for the process to be started</param>
-            <returns></returns>
-        </member>
-        <member name="M:Sers.Hardware.OsShell.Shell(System.String,System.String,System.Nullable{System.Int32},System.String)">
-            <summary>
-            
-            </summary>
-            <param name="fileName"> 如 reboot </param>
-            <param name="arguments"></param>
-            <param name="millisecondsOfWait">等待时间，默认null。若不指定则永久等待</param>
-            <param name="WorkingDirectory">sets the working directory for the process to be started</param>
-            <returns></returns>
-        </member>
         <member name="M:Sers.Hardware.Usage.LinuxUsageReader.ReadCpuUsage">
             <summary>
             读取CPU使用率信息

@@ -1,26 +1,20 @@
 ﻿#构建镜像
 
-# docker login -u sersms -p xxxxxxxxx
+# docker login -u serset -p xxxxxxxxx
  
 
 #把本文件所在目录下的文件夹拷贝到 /root/image 
 
-cd /root
-cd image 
+cd /root/image
  
  
 #构建镜像并推送到 镜像仓库
 cd adaptor_gateway
-docker build -t sersms/adaptor_gateway:1.1.281  . 
-docker push sersms/adaptor_gateway:1.1.281
-cd ..
+docker build . -t serset/adaptor_gateway:1.1.354 -t serset/adaptor_gateway
+
  
-
-#添加tag latest
-docker pull sersms/adaptor_gateway:1.1.281
-docker tag sersms/adaptor_gateway:1.1.281 sersms/adaptor_gateway
-docker push sersms/adaptor_gateway
-
+docker push serset/adaptor_gateway:1.1.354
+docker push serset/adaptor_gateway
 
 
 

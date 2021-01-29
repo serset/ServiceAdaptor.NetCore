@@ -1,4 +1,4 @@
-﻿docker部署adaptor_gateway
+docker部署adaptor_gateway
 
  
 
@@ -26,13 +26,13 @@ docker run --name=gateway --restart=always -d \
 -v $PWD/appsettings.json:/root/app/Gateway/appsettings.json \
 -v $PWD/wwwroot:/root/app/Gateway/wwwroot \
 -v $PWD/Logs:/root/app/Gateway/Logs \
-sersms/adaptor_gateway
+serset/adaptor_gateway
 
 cd .. 
 
 
 #精简
-docker run --name=gateway --restart=always -d -p 4580:4580 sersms/adaptor_gateway
+docker run --name=gateway --restart=always -d -p 4580:4580 serset/adaptor_gateway
 
 
 #(x.3)应用已经运行
