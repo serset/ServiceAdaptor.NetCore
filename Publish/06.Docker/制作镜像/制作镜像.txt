@@ -3,17 +3,18 @@
 # docker login -u serset -p xxxxxxxxx
  
 
-#把本文件所在目录下的文件夹拷贝到 /root/image 
+#把本文件所在目录下的文件夹拷贝到image 
 
 cd /root/image
- 
- 
-#构建镜像并推送到 镜像仓库
 cd adaptor_gateway
-docker build . -t serset/adaptor_gateway:1.1.354 -t serset/adaptor_gateway
-
  
-docker push serset/adaptor_gateway:1.1.354
+
+#构建镜像
+docker build . -t serset/adaptor_gateway:1.1.372 -t serset/adaptor_gateway
+
+
+#送到镜像仓库
+docker push serset/adaptor_gateway:1.1.372
 docker push serset/adaptor_gateway
 
 

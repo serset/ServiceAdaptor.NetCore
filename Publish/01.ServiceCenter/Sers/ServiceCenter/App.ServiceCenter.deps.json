@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "App.ServiceCenter/2.1.1.476": {
+      "App.ServiceCenter/2.1.1.482": {
         "dependencies": {
-          "Sers.CL.ClrZmq.ThreadWait": "2.1.1.476",
-          "Sers.CL.Ipc.SharedMemory": "2.1.1.476",
-          "Sers.CL.WebSocket": "2.1.1.476",
-          "Sers.CL.Zmq.FullDuplex": "2.1.1.476",
-          "Sers.Gateway": "2.1.1.476",
-          "Sers.Gover": "2.1.1.476",
-          "Sers.Gover.Apm.Zipkin": "2.1.1.476"
+          "Sers.CL.ClrZmq.ThreadWait": "2.1.1.482",
+          "Sers.CL.Ipc.SharedMemory": "2.1.1.482",
+          "Sers.CL.WebSocket": "2.1.1.482",
+          "Sers.CL.Zmq.FullDuplex": "2.1.1.482",
+          "Sers.Gateway": "2.1.1.482",
+          "Sers.Gover": "2.1.1.482",
+          "Sers.Gover.Apm.Zipkin": "2.1.1.482"
         },
         "runtime": {
           "App.ServiceCenter.dll": {}
@@ -1543,131 +1543,131 @@
           }
         }
       },
-      "Sers.CL.ClrZmq.ThreadWait/2.1.1.476": {
+      "Sers.CL.ClrZmq.ThreadWait/2.1.1.482": {
         "dependencies": {
-          "Sers.Core": "2.1.1.476",
+          "Sers.Core": "2.1.1.482",
           "ZeroMQ": "0.0.0.0"
         },
         "runtime": {
           "Sers.CL.ClrZmq.ThreadWait.dll": {}
         }
       },
-      "Sers.CL.Ipc.NamedPipe/2.1.1.476": {
+      "Sers.CL.Ipc.NamedPipe/2.1.1.482": {
         "dependencies": {
-          "Sers.Core": "2.1.1.476"
+          "Sers.Core": "2.1.1.482"
         },
         "runtime": {
           "Sers.CL.Ipc.NamedPipe.dll": {}
         }
       },
-      "Sers.CL.Ipc.SharedMemory/2.1.1.476": {
+      "Sers.CL.Ipc.SharedMemory/2.1.1.482": {
         "dependencies": {
-          "Sers.Core": "2.1.1.476",
+          "Sers.Core": "2.1.1.482",
           "SharedMemory": "2.2.3"
         },
         "runtime": {
           "Sers.CL.Ipc.SharedMemory.dll": {}
         }
       },
-      "Sers.CL.Socket.Iocp/2.1.1.476": {
+      "Sers.CL.Socket.Iocp/2.1.1.482": {
         "dependencies": {
-          "Sers.Core": "2.1.1.476"
+          "Sers.Core": "2.1.1.482"
         },
         "runtime": {
           "Sers.CL.Socket.Iocp.dll": {}
         }
       },
-      "Sers.CL.Socket.ThreadWait/2.1.1.476": {
+      "Sers.CL.Socket.ThreadWait/2.1.1.482": {
         "dependencies": {
-          "Sers.Core": "2.1.1.476"
+          "Sers.Core": "2.1.1.482"
         },
         "runtime": {
           "Sers.CL.Socket.ThreadWait.dll": {}
         }
       },
-      "Sers.CL.WebSocket/2.1.1.476": {
+      "Sers.CL.WebSocket/2.1.1.482": {
         "dependencies": {
           "Fleck": "1.1.0",
-          "Sers.Core": "2.1.1.476"
+          "Sers.Core": "2.1.1.482"
         },
         "runtime": {
           "Sers.CL.WebSocket.dll": {}
         }
       },
-      "Sers.CL.Zmq.FullDuplex/2.1.1.476": {
+      "Sers.CL.Zmq.FullDuplex/2.1.1.482": {
         "dependencies": {
-          "Sers.Core": "2.1.1.476"
+          "Sers.Core": "2.1.1.482"
         },
         "runtime": {
           "Sers.CL.Zmq.FullDuplex.dll": {}
         }
       },
-      "Sers.Core/2.1.1.476": {
+      "Sers.Core/2.1.1.482": {
         "dependencies": {
           "Microsoft.Extensions.DependencyModel": "2.0.0",
-          "Sers.Hardware": "2.1.1.476",
-          "Vit.Core": "2.1.1.476"
+          "Sers.Hardware": "2.1.1.482",
+          "Vit.Core": "2.1.1.482"
         },
         "runtime": {
           "Sers.Core.dll": {}
         }
       },
-      "Sers.Gateway/2.1.1.476": {
+      "Sers.Gateway/2.1.1.482": {
         "dependencies": {
           "Microsoft.AspNetCore": "2.1.1",
-          "Sers.ServiceStation": "2.1.1.476",
-          "Vit.WebHost": "2.1.1.476"
+          "Sers.ServiceStation": "2.1.1.482",
+          "Vit.WebHost": "2.1.1.482"
         },
         "runtime": {
           "Sers.Gateway.dll": {}
         }
       },
-      "Sers.Gover/2.1.1.476": {
+      "Sers.Gover/2.1.1.482": {
         "dependencies": {
-          "Sers.ServiceCenter": "2.1.1.476"
+          "Sers.ServiceCenter": "2.1.1.482"
         },
         "runtime": {
           "Sers.Gover.dll": {}
         }
       },
-      "Sers.Gover.Apm.Zipkin/2.1.1.476": {
+      "Sers.Gover.Apm.Zipkin/2.1.1.482": {
         "dependencies": {
-          "Sers.Gover": "2.1.1.476",
+          "Sers.Gover": "2.1.1.482",
           "zipkin4net": "1.5.0"
         },
         "runtime": {
           "Sers.Gover.Apm.Zipkin.dll": {}
         }
       },
-      "Sers.Hardware/2.1.1.476": {
+      "Sers.Hardware/2.1.1.482": {
         "dependencies": {
-          "Vit.Core": "2.1.1.476"
+          "Vit.Core": "2.1.1.482"
         },
         "runtime": {
           "Sers.Hardware.dll": {}
         }
       },
-      "Sers.ServiceCenter/2.1.1.476": {
+      "Sers.ServiceCenter/2.1.1.482": {
         "dependencies": {
-          "Sers.CL.Ipc.NamedPipe": "2.1.1.476",
-          "Sers.CL.Socket.Iocp": "2.1.1.476",
-          "Sers.CL.Socket.ThreadWait": "2.1.1.476"
+          "Sers.CL.Ipc.NamedPipe": "2.1.1.482",
+          "Sers.CL.Socket.Iocp": "2.1.1.482",
+          "Sers.CL.Socket.ThreadWait": "2.1.1.482"
         },
         "runtime": {
           "Sers.ServiceCenter.dll": {}
         }
       },
-      "Sers.ServiceStation/2.1.1.476": {
+      "Sers.ServiceStation/2.1.1.482": {
         "dependencies": {
-          "Sers.CL.Ipc.NamedPipe": "2.1.1.476",
-          "Sers.CL.Socket.Iocp": "2.1.1.476",
-          "Sers.CL.Socket.ThreadWait": "2.1.1.476"
+          "Sers.CL.Ipc.NamedPipe": "2.1.1.482",
+          "Sers.CL.Socket.Iocp": "2.1.1.482",
+          "Sers.CL.Socket.ThreadWait": "2.1.1.482"
         },
         "runtime": {
           "Sers.ServiceStation.dll": {}
         }
       },
-      "Vit.Core/2.1.1.476": {
+      "Vit.Core/2.1.1.482": {
         "dependencies": {
           "Microsoft.Extensions.DependencyModel": "2.0.0",
           "Newtonsoft.Json": "12.0.3",
@@ -1677,12 +1677,12 @@
           "Vit.Core.dll": {}
         }
       },
-      "Vit.WebHost/2.1.1.476": {
+      "Vit.WebHost/2.1.1.482": {
         "dependencies": {
           "Microsoft.AspNetCore.Cors": "2.0.0",
           "Microsoft.AspNetCore.Server.Kestrel": "2.1.1",
           "Microsoft.AspNetCore.StaticFiles": "2.0.0",
-          "Vit.Core": "2.1.1.476"
+          "Vit.Core": "2.1.1.482"
         },
         "runtime": {
           "Vit.WebHost.dll": {}
@@ -1699,7 +1699,7 @@
     }
   },
   "libraries": {
-    "App.ServiceCenter/2.1.1.476": {
+    "App.ServiceCenter/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2656,82 +2656,82 @@
       "path": "zipkin4net/1.5.0",
       "hashPath": "zipkin4net.1.5.0.nupkg.sha512"
     },
-    "Sers.CL.ClrZmq.ThreadWait/2.1.1.476": {
+    "Sers.CL.ClrZmq.ThreadWait/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.CL.Ipc.NamedPipe/2.1.1.476": {
+    "Sers.CL.Ipc.NamedPipe/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.CL.Ipc.SharedMemory/2.1.1.476": {
+    "Sers.CL.Ipc.SharedMemory/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.CL.Socket.Iocp/2.1.1.476": {
+    "Sers.CL.Socket.Iocp/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.CL.Socket.ThreadWait/2.1.1.476": {
+    "Sers.CL.Socket.ThreadWait/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.CL.WebSocket/2.1.1.476": {
+    "Sers.CL.WebSocket/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.CL.Zmq.FullDuplex/2.1.1.476": {
+    "Sers.CL.Zmq.FullDuplex/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.Core/2.1.1.476": {
+    "Sers.Core/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.Gateway/2.1.1.476": {
+    "Sers.Gateway/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.Gover/2.1.1.476": {
+    "Sers.Gover/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.Gover.Apm.Zipkin/2.1.1.476": {
+    "Sers.Gover.Apm.Zipkin/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.Hardware/2.1.1.476": {
+    "Sers.Hardware/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.ServiceCenter/2.1.1.476": {
+    "Sers.ServiceCenter/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sers.ServiceStation/2.1.1.476": {
+    "Sers.ServiceStation/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Vit.Core/2.1.1.476": {
+    "Vit.Core/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Vit.WebHost/2.1.1.476": {
+    "Vit.WebHost/2.1.1.482": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
