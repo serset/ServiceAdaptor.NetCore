@@ -387,6 +387,13 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:Vit.Extensions.TypeExtensions.IfNullable(System.Type)">
+            <summary>
+            是否为Nullable类型（例如 long?）
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="M:Vit.Extensions.TypeExtensions.GetUnderlyingTypeIfNullable(System.Type)">
             <summary>
             若为Nullable类型（例如 long?）则获取对应的值类型(例如long)，否则返回自身。
