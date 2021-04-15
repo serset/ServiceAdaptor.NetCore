@@ -52,7 +52,7 @@ namespace ServiceAdaptor.NetCore.Sers
 
 
             #region init rpc
-            Action<IRpcContextData> InitRpc = null;
+            Action<RpcContextData> InitRpc = null;
             if (req.headers == null)
             {
                 req.headers = new Dictionary<string, string>();
@@ -60,10 +60,11 @@ namespace ServiceAdaptor.NetCore.Sers
             req.headers.IDictionaryTryAdd("Content-Type", "application/json");            
             InitRpc =
                 rpcData =>
-                {                  
+                {
+                    var header = rpcData.http.Headers();
                     foreach (var item in req.headers)
                     {
-                        rpcData.http_header_Set(item.Key, item.Value);
+                        header[item.Key]= item.Value;
                     }
                 };
 
@@ -77,14 +78,13 @@ namespace ServiceAdaptor.NetCore.Sers
             ApiMessage response = global::Sers.Core.Module.Api.ApiClient.CallRemoteApi(request);
 
             #region (x.3)处理回应           
-            var replyRpcData = RpcFactory.CreateRpcContextData();
-            replyRpcData.UnpackOriData(response.rpcContextData_OriData);
+            var replyRpcData = RpcContextData.FromBytes(response.rpcContextData_OriData);             
 
             return new ApiResponse<ReturnType>
             {
-                StatusCode = replyRpcData.http_statusCode_Get() ?? 0,
+                StatusCode = replyRpcData.http.statusCode?? 0,
                 data = response.value_OriData.DeserializeFromArraySegmentByte<ReturnType>(),
-                headers = replyRpcData.http_headers_Get()?.ConvertBySerialize<IDictionary<string, string>>()
+                headers = replyRpcData.http.headers
             };
             #endregion
 
@@ -114,7 +114,7 @@ namespace ServiceAdaptor.NetCore.Sers
             }
 
             #region init rpc
-            Action<IRpcContextData> InitRpc = null;
+            Action<RpcContextData> InitRpc = null;
             if (req.headers == null)
             {
                 req.headers = new Dictionary<string, string>();
@@ -123,10 +123,11 @@ namespace ServiceAdaptor.NetCore.Sers
 
             InitRpc =
                 rpcData =>
-                {                     
+                {
+                    var header = rpcData.http.Headers();
                     foreach (var item in req.headers)
                     {
-                        rpcData.http_header_Set(item.Key, item.Value);
+                        header[item.Key] = item.Value;
                     }
                 };
             #endregion
@@ -137,14 +138,13 @@ namespace ServiceAdaptor.NetCore.Sers
             ApiMessage response = await global::Sers.Core.Module.Api.ApiClient.CallRemoteApiAsync(request);
 
             #region (x.3)处理回应           
-            var replyRpcData = RpcFactory.CreateRpcContextData();
-            replyRpcData.UnpackOriData(response.rpcContextData_OriData);
+            var replyRpcData =  RpcContextData.FromBytes(response.rpcContextData_OriData);
 
             return new ApiResponse<ReturnType>
             {
-                StatusCode = replyRpcData.http_statusCode_Get() ?? 0,
+                StatusCode = replyRpcData.http.statusCode ?? 0,
                 data = response.value_OriData.DeserializeFromArraySegmentByte<ReturnType>(),
-                headers = replyRpcData.http_headers_Get()?.ConvertBySerialize<IDictionary<string, string>>()
+                headers = replyRpcData.http.headers
             };
             #endregion
 

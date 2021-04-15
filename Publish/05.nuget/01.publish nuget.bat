@@ -32,11 +32,11 @@ dotnet build --configuration Release
 dotnet pack --configuration Release --output ..\..\Publish\05.nuget\nuget  
 cd /d ../
 
-echo 'pack ServiceAdaptor.NetCore.Be.Eureka'
-cd /d ServiceAdaptor.NetCore.Be.Eureka
-dotnet build --configuration Release
-dotnet pack --configuration Release --output ..\..\Publish\05.nuget\nuget  
-cd /d ../
+:: echo 'pack ServiceAdaptor.NetCore.Be.Eureka'
+:: cd /d ServiceAdaptor.NetCore.Be.Eureka
+:: dotnet build --configuration Release
+:: dotnet pack --configuration Release --output ..\..\Publish\05.nuget\nuget  
+:: cd /d ../
 
 cd /d ..\Publish\05.nuget
 

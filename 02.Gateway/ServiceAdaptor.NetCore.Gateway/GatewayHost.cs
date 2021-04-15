@@ -17,7 +17,7 @@ namespace ServiceAdaptor.NetCore.Gateway
 
         static string prefixOfCopyIpToHeader = Vit.Core.Util.ConfigurationManager.ConfigurationManager.Instance.GetStringByPath("Gateway.prefixOfCopyIpToHeader");
 
-        static string ResponseDefaultContentType = (ConfigurationManager.Instance.GetStringByPath("Gateway.ResponseDefaultContentType") ?? ("application/json; charset=" + Vit.Core.Module.Serialization.Serialization.Instance.charset));
+        static string ResponseDefaultContentType = (ConfigurationManager.Instance.GetStringByPath("Gateway.ResponseDefaultContentType") ?? ("application/json; charset=" + Vit.Core.Module.Serialization.Serialization_Newtonsoft.Instance.charset));
         static async Task Bridge(HttpContext context)
         {
             try
