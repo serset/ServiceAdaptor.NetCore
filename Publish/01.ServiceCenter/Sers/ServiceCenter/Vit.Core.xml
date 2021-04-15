@@ -4,32 +4,9 @@
         <name>Vit.Core</name>
     </assembly>
     <members>
-        <member name="M:Vit.Extensions.ByteDataExtensions.ByteDataPopInt32(System.Collections.Generic.List{System.ArraySegment{System.Byte}})">
-            <summary>
-            data的长度 必须大于等于4
-            </summary>
-            <param name="data"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Extensions.ByteDataExtensions.ByteDataPopBytes(System.Collections.Generic.List{System.ArraySegment{System.Byte}},System.Byte[])">
-            <summary>
-            data 的长度 必须大于等于 dataToPop 的长度
-            </summary>
-            <param name="data"></param>
-            <param name="dataToPop"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Extensions.ByteDataExtensions.ByteDataPopByteData(System.Collections.Generic.List{System.ArraySegment{System.Byte}},System.Int32)">
-            <summary>
-            data 的长度 必须大于等于lenToPop
-            </summary>
-            <param name="data"></param>
-            <param name="lenToPop"></param>
-            <returns></returns>
-        </member>
         <member name="M:Vit.Extensions.EnumExtensions.StringToEnum``1(System.String)">
             <summary>
-            T 必须为Enum
+            T 必须为Enum,且不可为Nullable
             </summary>
             <typeparam name="T"></typeparam>
             <param name="data"></param>
@@ -490,7 +467,7 @@
             <summary>
             通过序列化克隆对象
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="TTarget"></typeparam>
             <param name="value"></param>
             <returns></returns>
         </member>
@@ -730,39 +707,7 @@
             序列化字符编码。默认 UTF8。只可为 UTF7,UTF8,UTF32,ASCII,Unicode。
             </summary>
         </member>
-        <member name="F:Vit.Core.Module.Serialization.Serialization.Serialize_DateTimeFormat">
-            <summary>
-            时间序列化格式。例如 "yyyy-MM-dd HH:mm:ss"
-            </summary>
-        </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.SetDateTimeFormat(System.String)">
-            <summary>
-            设置时间序列化格式。例如 "yyyy-MM-dd HH:mm:ss"
-            </summary>
-            <param name="DateTimeFormat"></param>
-        </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.InitByAppSettings">
-            <summary>
-            根据配置文件（appsettings.json）初始化序列化配置
-            </summary>
-        </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.DeserializeFromString(System.String,System.Type)">
-            <summary>
-            使用Newtonsoft反序列化。T也可为值类型（例如 int?、bool） 
-            </summary>
-            <param name="value"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.DeserializeFromString``1(System.String)">
-            <summary>
-            使用Newtonsoft反序列化。T也可为值类型（例如 int?、bool） 
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.DeserializeStruct(System.String,System.Type)">
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.DeserializeStruct(System.String,System.Type)">
             <summary>
             
             </summary>
@@ -770,42 +715,83 @@
             <param name="type">必须为 where T : struct</param>
             <returns></returns>
         </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.DeserializeClass(System.String,System.Type)">
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.SerializeToString``1(``0)">
             <summary>
-            
+            T也可为值类型（例如 int?、bool） 
             </summary>
+            <typeparam name="T"></typeparam>
             <param name="value"></param>
-            <param name="type"> 必须为 where T : class </param>
             <returns></returns>
         </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.SerializeToBytes(System.Object)">
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.SerializeToString(System.Object,System.Type)">
             <summary>
-            obj 可以为   byte[]、string、 object       
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.SerializeToArraySegmentByte(System.Object)">
-            <summary>
-            obj 可以为   byte[]、string、 object       
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.ConvertBySerialize(System.Object,System.Type)">
-            <summary>
-            通过序列化克隆对象
+            T也可为值类型（例如 int?、bool） 
             </summary>
             <param name="value"></param>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Vit.Core.Module.Serialization.Serialization.ConvertBySerialize``1(System.Object)">
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.DeserializeFromString``1(System.String)">
             <summary>
-            通过序列化克隆对象
+            使用Newtonsoft反序列化。T也可为值类型（例如 int?、bool） 
+            </summary>
+            <param name="value"></param>    
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.DeserializeFromString(System.String,System.Type)">
+            <summary>
+            使用Newtonsoft反序列化。T也可为值类型（例如 int?、bool） 
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.SerializeToBytes``1(``0)">
+            <summary>
+            T 可以为   byte[]、string、 object 、struct
             </summary>
             <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.SerializeToBytes``1(``0,System.Text.Encoding)">
+            <summary>
+            T 可以为   byte[]、string、 object 、struct
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.SerializeToBytes(System.Object,System.Type)">
+            <summary>
+            type 可以为   byte[]、string、 object 、struct
+            </summary>
             <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.DeserializeFromBytes``1(System.Byte[])">
+            <summary>
+            type 可以为   byte[]、string、 object 、struct
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.DeserializeFromBytes(System.Byte[],System.Type)">
+            <summary>
+            type 可以为   byte[]、string、 object 、struct
+            </summary>
+            <param name="bytes"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Module.Serialization.Serialization_Newtonsoft.SerializeToArraySegmentByte(System.Object)">
+            <summary>
+            obj 可以为   byte[]、string、 object 、ArraySegment    
+            </summary>
+            <param name="obj"></param>
             <returns></returns>
         </member>
         <member name="M:Vit.Core.Util.Common.CommonHelp.GetAbsPath(System.String[])">
@@ -1168,7 +1154,7 @@
         </member>
         <member name="T:Vit.Core.Util.Dynamic.DynamicMethodExecutor">
             <summary>
-             
+             参考 https://blog.csdn.net/chuifuhuo6864/article/details/100879510
             </summary>
         </member>
         <member name="T:Vit.Core.Util.Extensible.Extensible">
@@ -1206,6 +1192,18 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vit.Core.Util.Guid.FastGuid.GetTimestamp">
+            <summary>
+            生成当前时间戳
+            </summary>
+            <returns>毫秒</returns>
+        </member>
+        <member name="M:Vit.Core.Util.Guid.FastGuid.GetGuid">
+            <summary>
+            获取长整形的ID
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Vit.Core.Util.Guid.Snowflake">
@@ -1564,6 +1562,25 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Vit.Core.Util.Pipelines.ByteData">
+            <summary>
+            
+            .net core中的高效动态内存管理方案
+            https://www.cnblogs.com/TianFang/p/10084049.html
+            
+            .net core中的System.Buffers名字空间
+            https://www.cnblogs.com/TianFang/p/9193881.html
+            
+            
+            Span＜T＞ —— .NET Core 高效运行的新基石
+            https://blog.csdn.net/wnvalentin/article/details/93485572
+            
+            
+            ReadOnlySequenceSegment .net core中的高效动态内存管理方案
+            https://www.cnblogs.com/TianFang/p/10084049.html
+            
+            </summary>
+        </member>
         <member name="T:Vit.Core.Util.Pipelines.PipeFrame">
             <summary>
             线程不安全
@@ -1573,6 +1590,14 @@
             <summary>
             Gets or sets the total number of elements the internal data structure can hold without resizing.(default:100000)
             </summary>
+        </member>
+        <member name="F:Vit.Core.Util.Pool.ObjectPoolGenerator`1.Capacity">
+            <summary>
+            Gets or sets the total number of elements the internal data structure can hold without resizing.(default:100000)
+            </summary>
+        </member>
+        <member name="F:Vit.Core.Util.Pool.PoolCache`1.queue">
+            *
         </member>
         <member name="M:Vit.Core.Util.Reflection.ObjectLoader.LoadAssembly(System.String,System.String)">
             <summary>
@@ -1643,6 +1668,7 @@
         </member>
         <member name="T:Vit.Core.Util.Threading.AsyncCache`1">
             <summary>
+            切换线程时依然可以传递数据。(若切换线程不传递则可使用System.Threading.ThreadLocal ,或者使用[ThreadStatic]特性)
             多包裹一层的原因是 子异步任务结束时会还原子异步任务对AsyncLocal做的更改(即子异步任务对AsyncLocal做的更改不会保留到子异步任务结束后的父异步任务中)
             参见https://blog.csdn.net/kkfd1002/article/details/80102244
             </summary>
@@ -1709,7 +1735,7 @@
         </member>
         <member name="F:Vit.Core.Util.Threading.LongTaskHelp_TimeLimit.timeout_ms">
             <summary>
-            超时时间，（主动关闭超过此时间的任务,实际任务强制关闭的时间会在1倍超时时间到2倍超时时间内)。单位：ms。(默认60000)
+            超时时间，（主动关闭超过此时间的任务,实际任务强制关闭的时间会在1倍超时时间到2倍超时时间内)。单位：ms。(默认300000)
             脉冲间隔。
             </summary>
         </member>
@@ -1812,9 +1838,14 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="F:Vit.Core.Util.Threading.SersTimer.intervalMs">
+        <member name="P:Vit.Core.Util.Threading.SersTimer.intervalMs">
             <summary>
             定时器间隔，单位：ms
+            </summary>
+        </member>
+        <member name="T:Vit.Core.Util.Threading.SersTimer_SingleThread">
+            <summary>
+            若前序timer回调没有执行结束，则后续回调不会被调用
             </summary>
         </member>
         <member name="P:Vit.Core.Util.Threading.TaskQueue.threadName">

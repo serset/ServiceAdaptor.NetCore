@@ -6,7 +6,7 @@
     <members>
         <member name="P:Sers.Core.CL.CommunicationManage.CommunicationManageClient.requestTimeoutMs">
             <summary>
-            请求超时时间（单位ms，默认60000）(Config.requestTimeoutMs)
+            请求超时时间（单位ms，默认300000）(Config.requestTimeoutMs)
             </summary>
         </member>
         <member name="P:Sers.Core.CL.CommunicationManage.CommunicationManageClient.conn_OnGetRequest">
@@ -26,7 +26,7 @@
         </member>
         <member name="P:Sers.Core.CL.CommunicationManage.CommunicationManageServer.requestTimeoutMs">
             <summary>
-            请求超时时间（单位ms，默认60000）(Config.requestTimeoutMs)
+            请求超时时间（单位ms，默认300000）(Config.requestTimeoutMs)
             </summary>
         </member>
         <member name="P:Sers.Core.CL.CommunicationManage.CommunicationManageServer.conn_OnGetRequest">
@@ -131,7 +131,7 @@
         </member>
         <member name="F:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.requestTimeoutMs">
             <summary>
-            请求超时时间（单位ms，默认60000）
+            请求超时时间（单位ms，默认300000）
             </summary>
         </member>
         <member name="F:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.heartBeatTimeoutMs">
@@ -149,27 +149,12 @@
             心跳检测时间间隔（单位ms，默认10000,若指定为0则不进行心跳检测）
             </summary>
         </member>
-        <member name="M:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.DeliveryToOrganize_MessageFrame.Push">
-            <summary>
-            使用结束请手动调用
-            </summary>
-        </member>
-        <member name="M:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.DeliveryToOrganize_RequestInfo.Push">
-            <summary>
-            使用结束请手动调用
-            </summary>
-        </member>
-        <member name="M:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.OrganizeToDelivery_RequestInfo.Push">
-            <summary>
-            使用结束请手动调用
-            </summary>
-        </member>
         <member name="P:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.HeartBeatPackage.timeouted">
             <summary>
             是否超时  true:已经超时  false:未超时   null:未知
             </summary>
         </member>
-        <member name="M:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.PackageReqRepFrame(System.Int64,System.Collections.Generic.List{System.ArraySegment{System.Byte}},System.Collections.Generic.List{System.ArraySegment{System.Byte}}@)">
+        <member name="M:Sers.Core.CL.MessageOrganize.DefaultOrganize.RequestAdaptor.PackageReqRepFrame(System.Int64,Vit.Core.Util.Pipelines.ByteData,Vit.Core.Util.Pipelines.ByteData@)">
             <summary>
             注：调用后，不改变oriMsg
             </summary>
@@ -195,24 +180,43 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.SetOnSendRequest(System.Func{System.Collections.Generic.List{System.ArraySegment{System.Byte}},System.ArraySegment{System.Byte}}[])">
+        <member name="M:Sers.Core.Module.Api.ApiClient.SetOnSendRequest(System.Action{Sers.Core.Module.Message.ApiMessage,System.Action{System.ArraySegment{System.Byte}}}[],System.Int32)">
             <summary>
             callbacks长度必须大于1
             </summary>
             <param name="callbacks"></param>
+            <param name="requestTimeoutMs"></param>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallApi(System.Collections.Generic.List{System.ArraySegment{System.Byte}})">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallApiWithBytes(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
-            <param name="reqOri"></param>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="InitRpc">对Rpc的额外处理,如添加header</param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallApi(Sers.Core.Module.Message.ApiMessage)">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallApi``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
-            <param name="request"></param>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="InitRpc">对Rpc的额外处理,如添加header</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallApi(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
+            <summary>
+            
+            </summary>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="InitRpc">对Rpc的额外处理,如添加header</param>
             <returns></returns>
         </member>
         <member name="M:Sers.Core.Module.Api.ApiClient.CallApiAsync(Sers.Core.Module.Message.ApiMessage)">
@@ -222,7 +226,7 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallApi``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallApiAsync``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
@@ -233,21 +237,12 @@
             <param name="InitRpc">对Rpc的额外处理,如添加header</param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallApi(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
-            <summary>
-            
-            </summary>
-            <param name="route"></param>
-            <param name="arg"></param>
-            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
-            <param name="InitRpc">对Rpc的额外处理,如添加header</param>
-            <returns></returns>
-        </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallApiAsync``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallApiAsync``1(System.Action{``0},System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
             <typeparam name="ReturnType"></typeparam>
+            <param name="callback"></param>
             <param name="route"></param>
             <param name="arg"></param>
             <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
@@ -261,7 +256,7 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApi(System.String,System.String,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApi(System.String,System.String,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
@@ -270,7 +265,7 @@
             <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
             <param name="InitRpc">对Rpc的额外处理,如添加header</param>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApi(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApi(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
@@ -279,7 +274,7 @@
             <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
             <param name="InitRpc">对Rpc的额外处理,如添加header</param>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApi``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApi``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
@@ -297,11 +292,23 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApiAsync``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApiAsync``1(System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
             <typeparam name="ReturnType"></typeparam>
+            <param name="route"></param>
+            <param name="arg"></param>
+            <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
+            <param name="InitRpc">对Rpc的额外处理,如添加header</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Core.Module.Api.ApiClient.CallRemoteApiAsync``1(System.Action{``0},System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
+            <summary>
+            
+            </summary>
+            <typeparam name="ReturnType"></typeparam>
+            <param name="callback"></param>
             <param name="route"></param>
             <param name="arg"></param>
             <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
@@ -450,7 +457,7 @@
             </summary>
             <param name="config"></param>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiEvent.BeforeCallApi.AccountInCookie.AccountInCookie.BeforeCallApi(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage)">
+        <member name="M:Sers.Core.Module.Api.ApiEvent.BeforeCallApi.AccountInCookie.AccountInCookie.BeforeCallApi(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Message.ApiMessage)">
             <summary>
             转换Cookie为对应的用户
             </summary>
@@ -462,7 +469,7 @@
             在调用接口前，会获取 rpcData.http.headers.Authorization(格式为 "Bearer xxxxxx")，并作为参数调用接口api_verifyAt，把返回数据放到 rpcData.user.userInfo
             </summary>
         </member>
-        <member name="M:Sers.Core.Module.Api.ApiEvent.BeforeCallApi.Bearer.Bearer.BeforeCallApi(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage)">
+        <member name="M:Sers.Core.Module.Api.ApiEvent.BeforeCallApi.Bearer.Bearer.BeforeCallApi(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Message.ApiMessage)">
             <summary>
             Bearer。 转换at为对应的用户
             </summary>
@@ -487,6 +494,11 @@
             </summary>
             <param name="events"></param>
             <returns></returns>
+        </member>
+        <member name="T:Sers.Core.Module.Api.LocalApi.ApiNodeMng">
+            <summary>
+             https://www.xin3721.com/ArticlecSharp/net17449.html
+            </summary>
         </member>
         <member name="F:Sers.Core.Module.Api.LocalApi.ApiNodeMng.apiNodeMapWithMethod">
             <summary>
@@ -551,7 +563,7 @@
         </member>
         <member name="P:Sers.Core.Module.Api.LocalApi.LocalApiService.Worker_TimeLimit.timeout_ms">
             <summary>
-            超时时间，（主动关闭超过此时间的任务,实际任务强制关闭的时间会在1倍超时时间到2倍超时时间内)。单位：ms。
+            超时时间。（主动关闭超过此时间的任务,实际任务强制关闭的时间会在1倍超时时间到2倍超时时间内)。单位：ms。
             脉冲间隔。
             </summary>
         </member>
@@ -735,6 +747,13 @@
             <param name="route"></param>
             <param name="apiService"></param>
         </member>
+        <member name="M:Sers.Core.Module.Api.RouteMap.RouteMap`1.Remove(System.String)">
+            <summary>
+            route demo：  1."/station1/fold2/api1"    2."/station1/fold2/*"
+            </summary>
+            <param name="route"></param>
+            <returns></returns>
+        </member>
         <member name="M:Sers.Core.Module.Api.RouteMap.RouteMap`1.Get(System.String)">
             <summary>
             route demo：  1."/station1/fold2/api1"    2."/station1/fold2/*"
@@ -756,50 +775,6 @@
             </summary>
             <param name="route"></param>
             <returns></returns>
-        </member>
-        <member name="M:Sers.Core.Module.Api.RouteMap.RouteMap`1.Remove(System.String)">
-            <summary>
-            route demo：  1."/station1/fold2/api1"    2."/station1/fold2/*"
-            </summary>
-            <param name="route"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Sers.Core.Module.Api.Rpc.ECallerSource">
-            <summary>
-            调用来源
-            </summary>
-        </member>
-        <member name="F:Sers.Core.Module.Api.Rpc.ECallerSource.Internal">
-            <summary>
-            内部调用
-            </summary>
-        </member>
-        <member name="F:Sers.Core.Module.Api.Rpc.ECallerSource.OutSide">
-            <summary>
-            外部调用(通过网关调用)
-            </summary>
-        </member>
-        <member name="T:Sers.Core.Module.Api.Rpc.RpcContextData">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="M:Sers.Core.Module.Api.Rpc.RpcContextData.UnpackOriData(System.ArraySegment{System.Byte})">
-             <summary>
-            
-             </summary>
-             <param name="oriData"></param>
-        </member>
-        <member name="M:Sers.Core.Module.Api.Rpc.RpcContextData.PackageOriData">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Sers.Core.Module.Api.Rpc.RpcContextData.caller_source">
-            <summary>
-            调用来源
-            </summary>    
         </member>
         <member name="M:Sers.Core.Module.App.AppEvent.AppEventLoader.LoadAppEvent(Newtonsoft.Json.Linq.JArray)">
             <summary>
@@ -954,6 +929,51 @@
             消息订阅者   msgTitle ->    connList
             </summary>
         </member>
+        <member name="T:Sers.Core.Module.Rpc.ECallerSource">
+            <summary>
+            调用来源
+            </summary>
+        </member>
+        <member name="F:Sers.Core.Module.Rpc.ECallerSource.Internal">
+            <summary>
+            内部调用
+            </summary>
+        </member>
+        <member name="F:Sers.Core.Module.Rpc.ECallerSource.OutSide">
+            <summary>
+            外部调用(通过网关调用)
+            </summary>
+        </member>
+        <member name="F:Sers.Core.Module.Rpc.RpcContextData.Caller.source">
+            <summary>
+            Internal、Outside
+            </summary>
+        </member>
+        <member name="M:Sers.Core.Module.Rpc.RpcContextData.Http.Headers">
+            <summary>
+            获取headers,确保不会为null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sers.Core.Module.Rpc.RpcContextData.Http.Headers(System.Int32)">
+            <summary>
+            获取headers,确保不会为null
+            </summary>
+            <param name="capacity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sers.Core.Module.Rpc.Serialization.Fast.BytePointor_RpcContextData">
+            <summary>
+            SerializeToBytes qps:560万
+            </summary>
+        </member>
+        <member name="T:Sers.Core.Module.Serialization.Serialization_Text">
+            <summary>
+             https://github.com/dotnet/runtime/tree/main/src/libraries/System.Text.Json
+             
+            System.Text.Json 自定义Converter实现时间转换 https://my.oschina.net/u/4359742/blog/3314243
+            </summary>
+        </member>
         <member name="F:Sers.Core.Module.Valid.Sers1.RpcVerify1.EValidType.Equal">
             <summary>
             { "type":"Equal","value":"Logined"}
@@ -998,6 +1018,24 @@
             <summary>
             验证方式
             </summary>
+        </member>
+        <member name="T:Sers.Core.Util.Consumer.ConsumerCache`2">
+            <summary> 
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Consumer"></typeparam>
+        </member>
+        <member name="F:Sers.Core.Util.Consumer.ConsumerFactory.ConsumerMode">
+            <summary>
+            队列模式。可为 BlockingCollection(默认)、 ConsumerCache_BlockingCollection(高性能)
+            </summary>
+        </member>
+        <member name="T:Sers.Core.Util.Consumer.Consumer_BlockingCollection`1">
+            <summary>
+            qps : 260万   producer:16    consumer:16
+            </summary>
+            <typeparam name="T"></typeparam>
         </member>
         <member name="P:Sers.SersLoader.ApiDesc.Attribute.RpcVerify.SsRpcVerifyAttribute.verifiedWhenNull">
             <summary>
@@ -1159,7 +1197,7 @@
             <param name="data"></param>
             <returns></returns>
         </member>
-        <member name="T:Vit.Extensions.IRpcContextDataExtensions">
+        <member name="T:Vit.Extensions.RpcContextDataExtensions">
             <summary>
             Extension methods for RpcContextData
             </summary>
@@ -1167,39 +1205,7 @@
             Extension methods for RpcContextData
             </summary>
         </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.ValueSetByPath(Sers.Core.Module.Rpc.IRpcContextData,System.Object,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="data"></param>
-            <param name="value"></param>
-            <param name="path">value在data中的路径，至少一层，例如：new []{"taskList"}</param>
-        </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.StringGetByPath(Sers.Core.Module.Rpc.IRpcContextData,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="data"></param>
-            <param name="path">value在data中的路径，至少一层，例如：new []{"taskList"}</param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_url_Get(Sers.Core.Module.Rpc.IRpcContextData)">
-            <summary>
-            若为内部调用，在调用时构建的url前缀为  "http://sers.internal"。
-            如 "http://sers.internal/Station1/getName"
-            </summary>
-            <param name="data"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_url_Set(Sers.Core.Module.Rpc.IRpcContextData,System.String)">
-            <summary>
-            若为内部调用，手动添加url前缀 "http://sers.internal"。
-            如 "http://sers.internal/Station1/getName"
-            </summary>
-            <param name="data"></param>
-            <param name="url"></param>
-        </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_url_search_Get(Sers.Core.Module.Rpc.IRpcContextData)">
+        <member name="M:Vit.Extensions.RpcContextDataExtensions.http_url_search_Get(Sers.Core.Module.Rpc.RpcContextData)">
             <summary>
             获取泛接口 路由 * 实际传递的内容。
             <para>（若 route为"/Station1/fold1/a/*"，url为"http://127.0.0.1/Station1/fold1/a/1/2.html?c=9",则search为"1/2.html?c=9"）</para>
@@ -1207,40 +1213,18 @@
             <param name="data"></param>
             <returns></returns>
         </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_url_RelativeUrl_Get(Sers.Core.Module.Rpc.IRpcContextData)">
+        <member name="M:Vit.Extensions.RpcContextDataExtensions.http_url_RelativeUrl_Get(Sers.Core.Module.Rpc.RpcContextData)">
             <summary>
             获取当前url对应的相对文件路径(若不合法，则返回null)。demo:"rpc/2.html"
             <para>（若 route为"/Station1/fold1/a/*"，url为"http://127.0.0.1/Station1/fold1/a/1/2.html?c=9",则 relativePath为"1/2.html"）</para>
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_url_RelativePath_Get(Sers.Core.Module.Rpc.IRpcContextData)">
+        <member name="M:Vit.Extensions.RpcContextDataExtensions.http_url_RelativePath_Get(Sers.Core.Module.Rpc.RpcContextData)">
             <summary>
             获取当前url对应的相对文件路径(若不合法，则返回null,会自动转换文件夹分隔符)。demo:"rpc\\2.html"
             <para>（若 route为"/Station1/fold1/a/*"，url为"http://127.0.0.1/Station1/fold1/a/1/2.html?c=9",则 relativePath为"1\\2.html"）</para>
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_protocol_Get(Sers.Core.Module.Rpc.IRpcContextData)">
-            <summary>
-            如 "HTTP/2.0"
-            </summary>
-            <param name="data"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_protocol_Set(Sers.Core.Module.Rpc.IRpcContextData,System.String)">
-            <summary>
-            如 "HTTP/2.0"
-            </summary>
-            <param name="data"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Vit.Extensions.IRpcContextDataExtensions.http_headers_Get(Sers.Core.Module.Rpc.IRpcContextData)">
-            <summary>
-            若没指定headers则返回null
-            </summary>
-            <param name="data"></param>
             <returns></returns>
         </member>
         <member name="M:Vit.Extensions.UseApiTraceLogExtensions.UseApiTraceLog(Sers.Core.Module.Api.LocalApi.Event.LocalApiEventMng)">
@@ -1254,12 +1238,7 @@
             从配置文件（appsettings.json::Sers.LocalApiService.staticFiles）加载静态文件映射器
             </summary>
         </member>
-        <member name="T:Vit.Extensions.ECallerSourceExtensions">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Vit.Extensions.ApiMessageExtensions.InitAsApiRequestMessage(Sers.Core.Module.Message.ApiMessage,System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.IRpcContextData})">
+        <member name="M:Vit.Extensions.ApiMessageExtensions.InitAsApiRequestMessage(Sers.Core.Module.Message.ApiMessage,System.String,System.Object,System.String,System.Action{Sers.Core.Module.Rpc.RpcContextData})">
             <summary>
             
             </summary>
@@ -1269,6 +1248,11 @@
             <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
             <param name="InitRpc">对Rpc的额外处理,如添加header</param>
             <returns></returns>
+        </member>
+        <member name="T:Vit.Extensions.ECallerSourceExtensions">
+            <summary>
+            
+            </summary>
         </member>
     </members>
 </doc>

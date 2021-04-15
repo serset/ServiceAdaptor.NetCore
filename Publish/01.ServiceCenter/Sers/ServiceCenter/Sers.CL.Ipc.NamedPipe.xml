@@ -21,7 +21,7 @@
         </member>
         <member name="F:Sers.CL.Ipc.NamedPipe.DeliveryClient.pipeName">
             <summary>
-            如： "Sers.CL.Ipc"
+            默认 "Sers.CL.Ipc"
             </summary>
         </member>
         <member name="M:Sers.CL.Ipc.NamedPipe.DeliveryClient.Close">

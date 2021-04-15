@@ -4,9 +4,6 @@
     "framework": {
       "name": "Microsoft.NETCore.App",
       "version": "2.1.0"
-    },
-   "configProperties": {
-      "System.Globalization.Invariant": true
     }
   }
 }

@@ -9,7 +9,7 @@
             当前可调用的ApiService
             </summary>
         </member>
-        <member name="M:Sers.Gover.Base.ApiLoadBalancingMng.GetCurApiNodeByLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Api.RouteMap.ERouteType@)">
+        <member name="M:Sers.Gover.Base.ApiLoadBalancingMng.GetCurApiNodeByLoadBalancing(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Api.RouteMap.ERouteType@)">
             <summary>
             通过负载均衡算法 获取可调用的ApiNode
             </summary>
@@ -29,7 +29,7 @@
             <param name="apiNode"></param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Gover.Base.ApiLoadBalancingMng_RESTful.GetCurApiNodeByLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Api.RouteMap.ERouteType@)">
+        <member name="M:Sers.Gover.Base.ApiLoadBalancingMng_RESTful.GetCurApiNodeByLoadBalancing(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Api.RouteMap.ERouteType@)">
             <summary>
             通过负载均衡算法 获取可调用的ApiNode
             </summary>
@@ -37,18 +37,18 @@
             <param name="routeType"></param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Gover.Base.GoverManage.ServiceStation_UpdateStationInfo(Sers.ServiceCenter.Entity.ServiceStation)">
+        <member name="M:Sers.Gover.Base.GoverApiCenterService.ServiceStation_UpdateStationInfo(Sers.ServiceCenter.Entity.ServiceStation)">
             <summary>
             更新服务站点设备硬件信息
             </summary>
             <param name="serviceStation"></param>
         </member>
-        <member name="F:Sers.Gover.Base.GoverManage.apiScopeEventList">
+        <member name="F:Sers.Gover.Base.GoverApiCenterService.apiScopeEventList">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Sers.Gover.Base.GoverManage.AddApiScopeEvent(System.Func{Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage,System.Action{System.Object,System.Collections.Generic.List{System.ArraySegment{System.Byte}}}})">
+        <member name="M:Sers.Gover.Base.GoverApiCenterService.AddApiScopeEvent(System.Func{Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Message.ApiMessage,System.Action{System.Object,Vit.Core.Util.Pipelines.ByteData}})">
             <summary>
             在调用api前调用onScope，若onScope返回的结果（onDispose）不为空，则在api调用结束前调用onDispose
             </summary>
@@ -206,7 +206,7 @@
             时间窗口ms
             </summary>
         </member>
-        <member name="M:Sers.Gover.RateLimit.IRateLimit.BeforeLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage)">
+        <member name="M:Sers.Gover.RateLimit.IRateLimit.BeforeLoadBalancing(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Message.ApiMessage)">
             <summary>
             若返回不为null，则对应服务被限流(服务直接返回对应错误)
             </summary>
@@ -214,7 +214,7 @@
             <param name="requestMessage"></param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Gover.RateLimit.IRateLimit.BeforeCallRemoteApi(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage,Sers.ServiceCenter.Entity.ApiNode)">
+        <member name="M:Sers.Gover.RateLimit.IRateLimit.BeforeCallRemoteApi(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Message.ApiMessage,Sers.ServiceCenter.Entity.ApiNode)">
             <summary>
             若返回不为null，则对应服务被限流(服务直接返回对应错误)
             </summary>
@@ -239,7 +239,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Sers.Gover.RateLimit.RateLimitMng.BeforeLoadBalancing(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage)">
+        <member name="M:Sers.Gover.RateLimit.RateLimitMng.BeforeLoadBalancing(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Message.ApiMessage)">
             <summary>
             若返回不为null，则对应服务被限流(服务直接返回对应错误)
             </summary>
@@ -247,7 +247,7 @@
             <param name="requestMessage"></param>
             <returns></returns>
         </member>
-        <member name="M:Sers.Gover.RateLimit.RateLimitMng.BeforeCallRemoteApi(Sers.Core.Module.Rpc.IRpcContextData,Sers.Core.Module.Message.ApiMessage,Sers.ServiceCenter.Entity.ApiNode)">
+        <member name="M:Sers.Gover.RateLimit.RateLimitMng.BeforeCallRemoteApi(Sers.Core.Module.Rpc.RpcContextData,Sers.Core.Module.Message.ApiMessage,Sers.ServiceCenter.Entity.ApiNode)">
             <summary>
             若返回不为null，则对应服务被限流(服务直接返回对应错误)
             </summary>
