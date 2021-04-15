@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>1.1.489</Version>
+    <Version>1.1.494</Version>
     <Description>https://github.com/serset/ServiceAdaptor.NetCore/tree/1.1/release</Description>
+    <PackageProjectUrl>https://github.com/serset/ServiceAdaptor.NetCore/tree/1.1/release</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -19,14 +20,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
    
-    <PackageReference Include="Sers.Core" Version="2.1.1.593" />
-    <PackageReference Include="Vit.WebHost" Version="2.1.1.593" />
+    <PackageReference Include="Sers.Core" Version="2.1.1.602" />
+    <PackageReference Include="Vit.WebHost" Version="2.1.1.602" />
     <ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj" />
     <ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.MinHttp\ServiceAdaptor.NetCore.MinHttp.csproj" />  
     <ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Consul\ServiceAdaptor.NetCore.Consul.csproj" />
     <ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Sers\ServiceAdaptor.NetCore.Sers.csproj" />
-    <!--<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Be.Eureka\ServiceAdaptor.NetCore.Be.Eureka.csproj" />-->
-    
+    <!--<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Be.Eureka\ServiceAdaptor.NetCore.Be.Eureka.csproj" />-->    
   </ItemGroup>
 
  
