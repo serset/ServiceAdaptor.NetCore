@@ -1,24 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.1.494</Version>
-    <Description>https://github.com/serset/ServiceAdaptor.NetCore/tree/1.1/release</Description>
-    <PackageProjectUrl>https://github.com/serset/ServiceAdaptor.NetCore/tree/1.1/release</PackageProjectUrl>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>1.1.501</Version>
+		<Description>微服务适配器</Description>
+		<PackageProjectUrl>https://github.com/serset/ServiceAdaptor.NetCore</PackageProjectUrl>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.NetCore.Sers.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.NetCore.Sers.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>  
-    <!-- Sers --> 
-    <PackageReference Include="Sers.Serslot" Version="2.1.1.602" />
-  </ItemGroup>
-  
-  
+	<ItemGroup>
+		<!-- Sers -->
+		<PackageReference Include="Sers.Serslot" Version="2.1.1.611" />
+	</ItemGroup>
+
+
 </Project>

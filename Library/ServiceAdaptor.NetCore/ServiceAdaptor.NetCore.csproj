@@ -1,25 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.1.494</Version>
-    <Description>https://github.com/serset/ServiceAdaptor.NetCore/tree/1.1/release</Description>
-    <PackageProjectUrl>https://github.com/serset/ServiceAdaptor.NetCore/tree/1.1/release</PackageProjectUrl>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>1.1.501</Version>
+		<Description>微服务适配器</Description>
+		<PackageProjectUrl>https://github.com/serset/ServiceAdaptor.NetCore</PackageProjectUrl>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.NetCore.xml</DocumentationFile>
-  </PropertyGroup> 
+	<PropertyGroup>
+		<DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.NetCore.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup> 
-    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.0.0" />
-    
-    <!-- Sers -->
-    <PackageReference Include="Vit.Core" Version="2.1.1.602" /> 
-  </ItemGroup> 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.0.0" />
 
- 
+		<!-- Sers -->
+		<PackageReference Include="Vit.Core" Version="2.1.1.611" />
+	</ItemGroup>
+
+
 
 
 </Project>
