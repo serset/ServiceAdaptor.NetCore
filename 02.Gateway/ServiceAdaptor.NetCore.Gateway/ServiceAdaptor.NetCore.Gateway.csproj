@@ -2,8 +2,12 @@
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp2.1</TargetFramework>
-		<Version>1.1.501</Version>
-		<Description>微服务适配器网关</Description>
+		<Version>1.2.510</Version>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Lith</Authors>
+		<Description>微服务适配器-网关</Description>
 		<PackageProjectUrl>https://github.com/serset/ServiceAdaptor.NetCore</PackageProjectUrl>
 	</PropertyGroup>
 
@@ -20,8 +24,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.App" />
 
-		<PackageReference Include="Sers.Core" Version="2.1.1.611" />
-		<PackageReference Include="Vit.WebHost" Version="2.1.1.611" />
+		<PackageReference Include="Sers.Core" Version="2.1.2.619" />
+		<PackageReference Include="Vit.WebHost" Version="2.1.2.619" />
 		<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj" />
 		<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.MinHttp\ServiceAdaptor.NetCore.MinHttp.csproj" />
 		<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Consul\ServiceAdaptor.NetCore.Consul.csproj" />

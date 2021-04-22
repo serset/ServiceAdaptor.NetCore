@@ -6,6 +6,12 @@
     <Description>https://github.com/serset/ServiceAdaptor/tree/1.0/release</Description>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<Authors>Lith</Authors>
+		<Description>微服务适配器</Description>
+		<PackageProjectUrl>https://github.com/serset/ServiceAdaptor.NetCore</PackageProjectUrl>
+	</PropertyGroup>
+
   <PropertyGroup>
     <DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.xml</DocumentationFile>
   </PropertyGroup>
