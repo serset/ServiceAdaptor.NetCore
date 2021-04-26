@@ -1,5 +1,5 @@
  
 cd /d ..\..\05.nuget
-call "01.publish nuget.bat" 
+call "nuget publish" 
 cd ..\重云\窟下重云
 
