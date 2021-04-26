@@ -21,7 +21,7 @@
 
 	<ItemGroup>
 		<!-- Sers -->
-		<PackageReference Include="Sers.Serslot" Version="2.1.2.626" />
+		<PackageReference Include="Sers.Serslot" Version="2.1.3.636-preview" />
 	</ItemGroup>
 
 
