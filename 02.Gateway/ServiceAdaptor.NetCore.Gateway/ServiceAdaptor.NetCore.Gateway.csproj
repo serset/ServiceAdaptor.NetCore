@@ -23,8 +23,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.App" />
 
-		<PackageReference Include="Sers.Core" Version="2.1.3.636-preview" />
-		<PackageReference Include="Vit.WebHost" Version="2.1.3.636-preview" />
+		<PackageReference Include="Sers.Core" Version="2.1.3.638-preview" />
+		<PackageReference Include="Vit.WebHost" Version="2.1.3.638-preview" />
 		<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj" />
 		<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.MinHttp\ServiceAdaptor.NetCore.MinHttp.csproj" />
 		<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Consul\ServiceAdaptor.NetCore.Consul.csproj" />
