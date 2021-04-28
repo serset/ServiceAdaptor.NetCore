@@ -1,4 +1,4 @@
-docker部署adaptor_gateway
+﻿docker部署adaptor_gateway
 
  
 
@@ -26,7 +26,7 @@ docker run --name=gateway --restart=always -d \
 -v $PWD/appsettings.json:/root/app/Gateway/appsettings.json \
 -v $PWD/wwwroot:/root/app/Gateway/wwwroot \
 -v $PWD/Logs:/root/app/Gateway/Logs \
-serset/adaptor_gateway
+serset/adaptor-gateway
 
 cd .. 
 

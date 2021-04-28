@@ -1,7 +1,7 @@
 echo '复制文件'
 
 ::制作镜像
-xcopy  "..\..\02.Gateway\Gateway"   "..\..\06.Docker\制作镜像\adaptor_gateway\gateway" /e /i /r /y
+xcopy  "..\..\02.Gateway\Gateway"   "..\..\06.Docker\制作镜像\adaptor-gateway\gateway" /e /i /r /y
 
 
 
