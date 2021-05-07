@@ -72,7 +72,7 @@ namespace ServiceAdaptor.NetCore.Consul
                     c.Address = new Uri(consulConfig.ConsulEndpoint);
                 }));
 
-            }).AddConfigure(app =>
+            }).ConfigureApp(app =>
             {
                 Logger.Info("[ServiceAdaptor.NetCore.Consul]注册... ");
 
@@ -129,7 +129,7 @@ namespace ServiceAdaptor.NetCore.Consul
                     return;
                     //throw;
                 }
-               
+
 
 
                 //(x.x.2)send consul request after service stop
@@ -154,6 +154,7 @@ namespace ServiceAdaptor.NetCore.Consul
 
 
                 #endregion
+
                 Logger.Info("[ServiceAdaptor.NetCore.Consul]注册成功!");
 
             });
