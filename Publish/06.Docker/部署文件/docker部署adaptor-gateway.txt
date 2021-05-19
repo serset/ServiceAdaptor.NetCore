@@ -1,4 +1,4 @@
-﻿docker部署adaptor_gateway
+﻿docker部署adaptor-gateway
 
  
 
@@ -23,9 +23,9 @@ cd Gateway
 docker run --name=gateway --restart=always -d \
 -p 4580:4580 \
 -v /etc/localtime:/etc/localtime \
--v $PWD/appsettings.json:/root/app/Gateway/appsettings.json \
--v $PWD/wwwroot:/root/app/Gateway/wwwroot \
--v $PWD/Logs:/root/app/Gateway/Logs \
+-v $PWD/appsettings.json:/root/app/appsettings.json \
+-v $PWD/wwwroot:/root/app/wwwroot \
+-v $PWD/Logs:/root/app/Logs \
 serset/adaptor-gateway
 
 cd .. 
@@ -36,7 +36,7 @@ docker run --name=gateway --restart=always -d -p 4580:4580 serset/adaptor_gatewa
 
 
 #(x.3)应用已经运行
-   可在文件夹Gateway/Logs 中查看日志
+   可在文件夹Logs 中查看日志
 
 #地址 http://ip:4580
 
@@ -47,7 +47,7 @@ docker run --name=gateway --restart=always -d -p 4580:4580 serset/adaptor_gatewa
 docker logs gateway
 
 #在容器内执行命令行
-docker  exec -it gateway /bin/sh
+docker  exec -it gateway bash
 
 #停止容器
 docker stop gateway

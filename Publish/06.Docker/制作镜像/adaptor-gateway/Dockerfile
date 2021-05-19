@@ -1,4 +1,4 @@
 FROM serset/dotnet:2.1
-COPY gateway /root/app/gateway
-WORKDIR /root/app/gateway
+COPY app /root/app
+WORKDIR /root/app
 CMD dotnet ServiceAdaptor.NetCore.Gateway.dll
