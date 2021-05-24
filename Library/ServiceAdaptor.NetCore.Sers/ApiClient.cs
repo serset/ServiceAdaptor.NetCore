@@ -142,7 +142,7 @@ namespace ServiceAdaptor.NetCore.Sers
 
             return new ApiResponse<ReturnType>
             {
-                StatusCode = replyRpcData.http.statusCode ?? 0,
+                StatusCode = replyRpcData.http.statusCode ?? 200,
                 data = response.value_OriData.DeserializeFromArraySegmentByte<ReturnType>(),
                 headers = replyRpcData.http.headers
             };
