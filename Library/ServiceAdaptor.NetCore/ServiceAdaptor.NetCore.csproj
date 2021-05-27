@@ -17,10 +17,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.1.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
 
     <!-- Sers -->
-    <PackageReference Include="Vit.Core" Version="2.1.4.678" />
+    <PackageReference Include="Vit.Core" Version="2.1.4.683" />
   </ItemGroup>
 
 
