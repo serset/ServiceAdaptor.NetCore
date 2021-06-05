@@ -24,11 +24,11 @@ namespace ServiceAdaptor.NetCore.Consul
 
         #region FindServiceByServiceName
 
-        CatalogService FindServiceByServiceName(string serviceName) 
+        async Task<CatalogService> FindServiceByServiceNameAsync(string serviceName) 
         {
             using (var consulClient = new ConsulClient(a => a.Address = new Uri(ConsulAddress)))
             {         
-                var services = consulClient.Catalog.Service(serviceName).Result.Response;
+                var services = (await consulClient.Catalog.Service(serviceName)).Response;
                 if (services != null && services.Any())
                 {
                     // 模拟随机一台进行请求，这里只是测试，可以选择合适的负载均衡工具或框架
@@ -57,16 +57,12 @@ namespace ServiceAdaptor.NetCore.Consul
             public ApiClient apiClient;
             public async Task<ApiResponse<ReturnType>> BeforeCallApi<ReturnType>(ApiRequest req)
             {
-
-                var serviceInfo = apiClient.FindServiceByServiceName(req.GetServiceName());
-
+                var serviceInfo = await apiClient.FindServiceByServiceNameAsync(req.GetServiceName());
                 if (serviceInfo == null)
                 {
                     return new ApiResponse<ReturnType> { StatusCode = (int)HttpStatusCode.NotFound };
                 }
-
                 req.url = "http://" + serviceInfo.ServiceAddress + ":" + serviceInfo.ServicePort + req.url;
-
                 return null;
             }
         }

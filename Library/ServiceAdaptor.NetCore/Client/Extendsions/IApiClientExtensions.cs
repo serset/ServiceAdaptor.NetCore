@@ -92,6 +92,7 @@ namespace Vit.Extensions
         /// 
         /// </summary>
         /// <typeparam name="ReturnType"></typeparam>
+        /// <param name="Instance"></param>
         /// <param name="url"></param>
         /// <param name="arg"></param>
         /// <param name="httpMethod">可为 GET、POST、DELETE、PUT等,可不指定</param>
