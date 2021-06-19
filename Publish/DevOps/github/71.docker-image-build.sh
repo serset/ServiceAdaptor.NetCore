@@ -7,7 +7,6 @@ args_="
 
 export codePath=/root/temp/svn
 
-export version=`grep '<Version>' ${codePath} -r --include ServiceAdaptor.NetCore.csproj | grep -oP '>(.*)<' | tr -d '<>'`
 
 export DOCKER_USERNAME=serset
 export DOCKER_PASSWORD=xxx
