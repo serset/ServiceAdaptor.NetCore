@@ -7,7 +7,7 @@ args_="
 
 export codePath=/root/temp/svn
 
-export version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' ${codePath} -r --include ServiceAdaptor.NetCore.csproj | grep -oP '>(.*)<' | tr -d '<>'`
 
 export DOCKER_USERNAME=serset
 export DOCKER_PASSWORD=xxx
@@ -57,7 +57,7 @@ do
   if [ -d $dockerPath/$dockerName ]
   then 
     echo "docker build $dockerName"
-    docker buildx build $dockerPath/$dockerName -t $DOCKER_USERNAME/$dockerName:$version -t $DOCKER_USERNAME/$dockerName --platform=linux/amd64,linux/arm64,linux/arm/v7 --push
+    #docker buildx build $dockerPath/$dockerName -t $DOCKER_USERNAME/$dockerName:$version -t $DOCKER_USERNAME/$dockerName --platform=linux/amd64,linux/arm64,linux/arm/v7 --push
   fi
 done
 

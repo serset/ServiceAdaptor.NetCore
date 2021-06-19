@@ -13,8 +13,7 @@ cd $curWorkDir
 
 # export codePath=/root/temp/svn
 
-export name=filezip
-export projectPath=FileZip
+export name=ServiceAdaptor
 
 #export DOCKER_USERNAME=serset
 #export DOCKER_PASSWORD=xxx
@@ -31,7 +30,7 @@ export projectPath=FileZip
 
 #----------------------------------------------
 echo "(x.2)get version" 
-export version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' ${codePath} -r --include ServiceAdaptor.NetCore.csproj | grep -oP '>(.*)<' | tr -d '<>'`
 # echo $version
 
 

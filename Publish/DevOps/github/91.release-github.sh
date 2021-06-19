@@ -7,9 +7,9 @@ args_="
 
 export codePath=/root/temp/svn
 
-export version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' ${codePath} -r --include ServiceAdaptor.NetCore.csproj | grep -oP '>(.*)<' | tr -d '<>'`
 
-export name=filezip
+export name=ServiceAdaptor
 
 # "
 

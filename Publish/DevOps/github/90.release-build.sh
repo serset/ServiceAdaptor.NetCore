@@ -7,9 +7,9 @@ args_="
 
 export codePath=/root/temp/svn
 
-export version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' ${codePath} -r --include ServiceAdaptor.NetCore.csproj | grep -oP '>(.*)<' | tr -d '<>'`
 
-export name=filezip
+export name=ServiceAdaptor
 
 export export GIT_SSH_SECRET=xxxxxx
 
@@ -21,6 +21,10 @@ export export GIT_SSH_SECRET=xxxxxx
 
 #----------------------------------------------
 echo "(x.2)发布文件-压缩"
+
+
+\cp -rf $codePath/Publish/ReleaseFile/docker-deploy $codePath/Publish/release/release/docker-deploy
+
 
 docker run --rm -i \
 -v $codePath:/root/code \
