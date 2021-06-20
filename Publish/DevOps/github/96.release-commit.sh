@@ -18,7 +18,7 @@ export name=ServiceAdaptor
 
 
 #---------------------------------------------------------------------
-#(x.2)初始化github release环境变量
+#(x.2)构建github release环境变量
 releaseFile=$codePath/Publish/release/${name}-${version}.zip
 
 filePath=${releaseFile}
