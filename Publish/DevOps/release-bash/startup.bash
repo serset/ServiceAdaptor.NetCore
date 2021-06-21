@@ -11,20 +11,6 @@ export codePath=$PWD
 cd $curWorkDir
 
 
-# export codePath=/root/temp/svn
-
-export name=ServiceAdaptor
-
-#export DOCKER_USERNAME=serset
-#export DOCKER_PASSWORD=xxx
-
-#export NUGET_SERVER=https://api.nuget.org/v3/index.json
-#export NUGET_KEY=xxxxxxxxxx
-
-#export export GIT_SSH_SECRET=xxxxxx
-
-
-
 
 
 
