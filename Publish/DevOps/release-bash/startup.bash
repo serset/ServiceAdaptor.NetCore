@@ -1,6 +1,6 @@
 set -e
 
-# cd /root/temp/svn/Publish/DevOps/github;bash startup.bash;
+# cd /root/temp/svn/Publish/DevOps/release-bash;bash startup.bash;
 
 #----------------------------------------------
 #(x.1)当前路径 

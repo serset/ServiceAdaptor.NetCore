@@ -10,7 +10,7 @@ echo %~n0.bat start...
 ::(x.1)ªÒ»°basePath
 set curPath=%cd%
 cd /d "%~dp0"
-cd /d ../..
+cd /d ../../..
 set basePath=%cd%
 set publishPath=%basePath%/Publish/release/release/publish
 set dockerPath=%basePath%/Publish/release/release/docker-image

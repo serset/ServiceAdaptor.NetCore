@@ -3,7 +3,7 @@
 ::(x.1)ªÒ»°basePath
 set curPath=%cd%
 cd /d "%~dp0"
-cd /d ../..
+cd /d ../../..
 set basePath=%cd%
 set nugetPath=%cd%/Publish/release/release/nuget
 

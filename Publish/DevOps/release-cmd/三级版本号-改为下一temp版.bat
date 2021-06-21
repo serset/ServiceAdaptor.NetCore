@@ -2,7 +2,7 @@
 
 ::获取当前版本号
 :: set version=2.1.3
-for /f "tokens=3 delims=><" %%a in ('type ..\..\Library\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj^|findstr "<Version>.*Version"') do set version=%%a
+for /f "tokens=3 delims=><" %%a in ('type ..\..\..\Library\ServiceAdaptor.NetCore\ServiceAdaptor.NetCore.csproj^|findstr "<Version>.*Version"') do set version=%%a
 
 for /f "tokens=1 delims=-" %%i in ("%version%") do set numVersion=%%i
 
@@ -20,9 +20,9 @@ echo 自动修改版本号 [%version%]-^>[%newVersion%]
 echo.
 
 :: 调用工具 替换csproj文件中的版本号
-VsTool.exe replace -r --path "..\.." --file "*.csproj" --old "%version%" --new "%newVersion%"
+VsTool.exe replace -r --path "..\..\.." --file "*.csproj" --old "%version%" --new "%newVersion%"
 
-VsTool.exe replace -r --path "..\ReleaseFile\docker-image" --file "*.txt" --old "%version%" --new "%newVersion%"
+VsTool.exe replace -r --path "..\..\ReleaseFile\docker-image" --file "*.txt" --old "%version%" --new "%newVersion%"
 
 echo.
 echo.
