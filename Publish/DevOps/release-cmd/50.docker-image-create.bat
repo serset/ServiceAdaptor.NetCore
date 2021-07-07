@@ -7,28 +7,28 @@ setlocal EnableDelayedExpansion
 echo %~n0.bat start...
 
 
-::(x.1)获取basePath
+::(x.1)获取codePath
 set curPath=%cd%
 cd /d "%~dp0"
-cd /d ../..
-set basePath=%cd%
-set publishPath=%basePath%/Publish/release/release/publish
-set dockerPath=%basePath%/Publish/release/release/docker-image
+cd /d ../../..
+set codePath=%cd%
+set publishPath=%codePath%/Publish/release/release/publish
+set dockerPath=%codePath%/Publish/release/release/docker-image
 
 
 rd /s /q "%dockerPath%"
 
 ::(x.2)copy dir
-xcopy "%basePath%/Publish/ReleaseFile/docker-image" "%dockerPath%" /e /i /r /y
+xcopy "%codePath%/Publish/ReleaseFile/docker-image" "%dockerPath%" /e /i /r /y
 
 
 
 ::(x.3)查找所有需要发布的项目并发布
 for /f "delims=" %%f in ('findstr /M /s /i "<docker>" *.csproj') do (
 	::get publishName
-	for /f "tokens=3 delims=><" %%a in ('type "%basePath%\%%f"^|findstr "<publish>.*publish"') do set publishName=%%a
+	for /f "tokens=3 delims=><" %%a in ('type "%codePath%\%%f"^|findstr "<publish>.*publish"') do set publishName=%%a
 	::get dockerName
-	for /f "tokens=3 delims=><" %%a in ('type "%basePath%\%%f"^|findstr "<docker>.*docker"') do set dockerName=%%a
+	for /f "tokens=3 delims=><" %%a in ('type "%codePath%\%%f"^|findstr "<docker>.*docker"') do set dockerName=%%a
 
 	echo create !dockerName!
 

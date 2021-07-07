@@ -22,8 +22,6 @@ export name=ServiceAdaptor
 releaseFile=$codePath/Publish/release/${name}-${version}.zip
 
 filePath=${releaseFile}
-#name=Vit.Library
-#version=2.5
 
 
 fileType="${filePath##*.}"
