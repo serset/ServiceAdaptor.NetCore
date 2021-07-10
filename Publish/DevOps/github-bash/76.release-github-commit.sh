@@ -5,9 +5,9 @@ set -e
 #(x.1)参数
 args_="
 
-export codePath=/root/temp/svn
+export basePath=/root/temp/svn
 
-export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${codePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${basePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
 
 export name=ServiceAdaptor
 
@@ -19,7 +19,7 @@ export name=ServiceAdaptor
 
 #---------------------------------------------------------------------
 #(x.2)构建github release环境变量
-releaseFile=$codePath/Publish/release/${name}-${version}.zip
+releaseFile=$basePath/Publish/release/${name}-${version}.zip
 
 filePath=${releaseFile}
 

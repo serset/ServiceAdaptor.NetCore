@@ -6,14 +6,14 @@ set -e
 
 #----------------------------------------------
 #(x.1)µ±Ç°Â·¾¶
-curWorkDir=$PWD
+curPath=$PWD
 
-cd $curWorkDir/../../..
-export codePath=$PWD
-cd $curWorkDir
+cd $curPath/../../..
+export basePath=$PWD
+cd $curPath
 
 
-# export codePath=/root/temp/svn
+# export basePath=/root/temp/svn
 
 export name=ServiceAdaptor
 
@@ -28,7 +28,7 @@ export name=ServiceAdaptor
 
 #----------------------------------------------
 echo "(x.2)get version" 
-export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${codePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${basePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
 echo $version
 
 
