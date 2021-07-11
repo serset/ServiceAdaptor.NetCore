@@ -19,12 +19,10 @@ export name=ServiceAdaptor
 
 #---------------------------------------------------------------------
 #(x.2)构建github release环境变量
-releaseFile=$basePath/Publish/release/${name}-${version}.zip
-
-filePath=${releaseFile}
 
 
-fileType="${filePath##*.}"
+
+
 echo "release_name=${name}-${version}" >> $GITHUB_ENV
 echo "release_tag=${version}" >> $GITHUB_ENV
 
@@ -33,7 +31,10 @@ echo "release_prerelease=false" >> $GITHUB_ENV
 
 echo "release_body=" >> $GITHUB_ENV
 
-echo "release_assetPath=${filePath}" >> $GITHUB_ENV
+releaseFile=$basePath/Publish/release/${name}-${version}.zip
+fileType="${releaseFile##*.}"
+
+echo "release_assetPath=${releaseFile}" >> $GITHUB_ENV
 echo "release_assetName=${name}-${version}.${fileType}" >> $GITHUB_ENV
 echo "release_contentType=application/${fileType}" >> $GITHUB_ENV
 
