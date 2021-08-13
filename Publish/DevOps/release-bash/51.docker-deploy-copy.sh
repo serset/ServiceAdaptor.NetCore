@@ -5,7 +5,7 @@ set -e
 #(x.1)参数
 args_="
 
-export codePath=/root/temp/svn
+export basePath=/root/temp/svn
 
 # "
 
@@ -16,7 +16,7 @@ export codePath=/root/temp/svn
 echo "copy file"
 
 
-\cp -rf $codePath/Publish/ReleaseFile/docker-deploy $codePath/Publish/release/release/docker-deploy
+\cp -rf $basePath/Publish/ReleaseFile/docker-deploy $basePath/Publish/release/release/docker-deploy
 
 
 

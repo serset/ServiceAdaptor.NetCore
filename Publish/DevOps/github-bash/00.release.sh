@@ -4,9 +4,9 @@ set -e
 
 #----------------------------------------------
 #(x.1)当前路径 
-curWorkDir=$PWD
+curPath=$PWD
 
-cd $curWorkDir/../release-bash
+cd $curPath/../release-bash
 export releaseBashPath=$PWD
 
  
@@ -24,4 +24,4 @@ bash startup.bash
  
 #----------------------------------------------
 #(x.9)
-#cd $curWorkDir
+#cd $curPath

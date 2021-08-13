@@ -5,9 +5,9 @@ set -e
 #(x.1)参数
 args_="
 
-export codePath=/root/temp/svn
+export basePath=/root/temp/svn
 
-export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${codePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${basePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
 
 export name=ServiceAdaptor
 
@@ -21,15 +21,15 @@ export export GIT_SSH_SECRET=xxxxxx
 
 #----------------------------------------------
 echo "github-提交release文件到serset/release仓库"
-# releaseFile=$codePath/Publish/release/${name}-${version}.zip
+# releaseFile=$basePath/Publish/release/${name}-${version}.zip
 
 #复制ssh key
-echo "${GIT_SSH_SECRET}" > $codePath/Publish/release/serset
-chmod 600 $codePath/Publish/release/serset
+echo "${GIT_SSH_SECRET}" > $basePath/Publish/release/serset
+chmod 600 $basePath/Publish/release/serset
 
 #推送到github
 docker run -i --rm \
--v $codePath/Publish/release:/root/release serset/git-client bash -c "
+-v $basePath/Publish/release:/root/release serset/git-client bash -c "
 set -e
 ssh-agent bash -c \"
 ssh-add /root/release/serset

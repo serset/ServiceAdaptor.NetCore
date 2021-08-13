@@ -5,7 +5,7 @@ set -e
 #(x.1)参数
 args_="
 
-export codePath=/root/temp/svn
+export basePath=/root/temp/svn
 
 
 # "
@@ -17,21 +17,21 @@ export codePath=/root/temp/svn
 echo "(x.2)docker-image-create"
 
 
-publishPath=$codePath/Publish/release/release/publish
-dockerPath=$codePath/Publish/release/release/docker-image
+publishPath=$basePath/Publish/release/release/publish
+dockerPath=$basePath/Publish/release/release/docker-image
 
 
 
 echo "copy dir"
 mkdir -p $dockerPath
-\cp -rf $codePath/Publish/ReleaseFile/docker-image/. $dockerPath
+\cp -rf $basePath/Publish/ReleaseFile/docker-image/. $dockerPath
 
 
 #查找所有需要发布的项目并发布
-cd $codePath
+cd $basePath
 for file in $(grep -a '<docker>' . -rl --include *.csproj)
 do
-	cd $codePath
+	cd $basePath
 	
 	#get publishName
 	publishName=`grep '<publish>' $file -r | grep -oP '>(.*)<' | tr -d '<>'`
