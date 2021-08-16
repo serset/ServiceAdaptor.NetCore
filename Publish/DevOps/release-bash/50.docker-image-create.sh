@@ -7,14 +7,11 @@ args_="
 
 export basePath=/root/temp/svn
 
-
 # "
 
  
-
-
 #---------------------------------------------------------------------
-echo "(x.2)docker-image-create"
+#(x.2)
 publishPath="$basePath/Publish/release/release/Station(net5.0)"
 dockerPath=$basePath/Publish/release/release/docker-image
 
@@ -22,8 +19,7 @@ dockerPath=$basePath/Publish/release/release/docker-image
 
 #---------------------------------------------------------------------
 echo "(x.3)copy dir"
-mkdir -p $dockerPath
-\cp -rf $basePath/Publish/ReleaseFile/docker-image/. $dockerPath
+\cp -rf "$basePath/Publish/ReleaseFile/docker-image/." "$dockerPath"
 
 
 #---------------------------------------------------------------------
@@ -40,9 +36,7 @@ do
 	#get dockerName
 	dockerName=`grep '<docker>' $file -r | grep -oP '>(.*)<' | tr -d '<>'`
 
-	echo create $dockerName
-
-	#copy file
+	echo copy $dockerName
 	\cp -rf "$publishPath/$publishName/." "$dockerPath/$dockerName/app"
 done
 

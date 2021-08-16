@@ -17,7 +17,6 @@ dockerPath=$basePath/Publish/release/release/docker-deploy
 
 
 
-
 #----------------------------------------------
 echo "(x.3)copy dir"
 \cp -rf "$basePath/Publish/ReleaseFile/docker-deploy/." "$dockerPath"
