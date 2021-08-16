@@ -18,11 +18,24 @@ export name=ServiceAdaptor
 
 
 #----------------------------------------------
-echo "压缩发布文件"
+echo "压缩文件"
 
 docker run --rm -i \
 -v $basePath:/root/code \
-serset/filezip filezip zip -p -i /root/code/Publish/release/release -o /root/code/Publish/release/${name}-${version}.zip 
+serset/filezip bash -c "
+set -e
 
+releasePath=/root/code/Publish/release
 
+for dirname in \`ls /root/code/Publish/release/release\`
+do
+  if [ -d \$releasePath/release/\$dirname ]
+  then
+    filezip zip -p -i \$releasePath/release/\$dirname -o \$releasePath/release-zip/${name}-\${dirname}-${version}.zip 
+  fi
+done
 
+echo zip files:
+ls /root/code/Publish/release/release-zip
+
+"
