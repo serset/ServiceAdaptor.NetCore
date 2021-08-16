@@ -41,7 +41,7 @@ jobs:
            bash startup.bash
            echo build succeed!
            
-           export appName="ServiceAdaptor"
+           echo "appName=ServiceAdaptor" >> $GITHUB_ENV
            
            
       - name: release_create
