@@ -44,7 +44,7 @@ jobs:
       - name: release_create
         id: release_create
         uses: actions/create-release@v1
-        if: hashFiles(env.release_assetPath)
+        #if: hashFiles(env.release_assetPath)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -53,14 +53,90 @@ jobs:
           draft: ${{ env.release_draft }}
           prerelease: ${{ env.release_prerelease }}
           body: ${{ env.release_body }}
-      - name: release_upload_asset
-        id: release_upload_asset
-        uses: actions/upload-release-asset@v1
-        if: hashFiles(env.release_assetPath)
+
+
+      # release_upload_asset
+
+      - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.release_create.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a   `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ${{ env.release_assetPath }}
-          asset_name: ${{ env.release_assetName }}
-          asset_content_type: ${{ env.release_contentType }}
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-nuget-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-nuget-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-docker-image-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-docker-image-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-docker-deploy-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-docker-deploy-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+
+
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-Station(net5.0)-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-Station-net5.0-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-Station(net6.0)-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-Station-net6.0-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-Station(netcoreapp2.1)-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-Station-netcoreapp2.1-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-Station(netcoreapp2.2)-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-Station-netcoreapp2.2-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-Station(netcoreapp3.0)-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-Station-netcoreapp3.0-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/ServiceAdaptor-Station(netcoreapp3.1)-${{ env.release_version }}.zip
+          asset_name: ServiceAdaptor-Station-netcoreapp3.1-${{ env.release_version }}.zip
+          asset_content_type: application/zip
