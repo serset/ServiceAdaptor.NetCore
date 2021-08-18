@@ -7,7 +7,7 @@ args_="
 
 export basePath=/root/temp/svn
 
-export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${basePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' $(grep '<pack>\|<publish>' ${basePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
 
 export name=ServiceAdaptor
 
@@ -21,7 +21,7 @@ export export GIT_SSH_SECRET=xxxxxx
 
 #----------------------------------------------
 echo "github-提交release文件到serset/release仓库"
-# releaseFile=$basePath/Publish/release/${name}-${version}.zip
+# releaseFile=$basePath/Publish/release/release-zip
 
 #复制ssh key
 echo "${GIT_SSH_SECRET}" > $basePath/Publish/release/serset
@@ -39,9 +39,9 @@ git config --global user.name 'lith'
 mkdir -p /root/code
 cd /root/code
 git clone git@github.com:serset/release.git /root/code
-mkdir -p /root/code/file/${name}
-cp /root/release/${name}-${version}.zip /root/code/file/${name}
-git add file/${name}/${name}-${version}.zip
+mkdir -p /root/code/file/${name}/${name}-${version}
+\\cp -rf  /root/release/release-zip/. /root/code/file/${name}/${name}-${version}
+git add /root/code/file/${name}/${name}-${version}/.
 git commit -m 'auto commit ${version}'
 git push -u origin master \" "
 

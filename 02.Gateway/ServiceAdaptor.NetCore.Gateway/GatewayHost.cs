@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Vit.Core.Module.Log;
-using Vit.Core.Util.ConfigurationManager;
 using Vit.Extensions;
 using Vit.WebHost;
 
@@ -17,7 +16,7 @@ namespace ServiceAdaptor.NetCore.Gateway
 
         static string prefixOfCopyIpToHeader = Vit.Core.Util.ConfigurationManager.ConfigurationManager.Instance.GetStringByPath("Gateway.prefixOfCopyIpToHeader");
 
-        static string ResponseDefaultContentType = (ConfigurationManager.Instance.GetStringByPath("Gateway.ResponseDefaultContentType") ?? ("application/json; charset=" + Vit.Core.Module.Serialization.Serialization_Newtonsoft.Instance.charset));
+        static string ResponseDefaultContentType = (Vit.Core.Util.ConfigurationManager.ConfigurationManager.Instance.GetStringByPath("Gateway.ResponseDefaultContentType") ?? ("application/json; charset=" + Vit.Core.Module.Serialization.Serialization_Newtonsoft.Instance.charset));
         static async Task Bridge(HttpContext context)
         {
             try
@@ -120,7 +119,7 @@ namespace ServiceAdaptor.NetCore.Gateway
             try
             {
 
-                HostRunArg arg = ConfigurationManager.Instance.GetByPath<HostRunArg>("Gateway");
+                HostRunArg arg = Vit.Core.Util.ConfigurationManager.ConfigurationManager.Instance.GetByPath<HostRunArg>("Gateway");
                 if (arg == null || arg.urls == null || arg.urls.Length == 0) return;
 
 
