@@ -52,7 +52,8 @@ namespace ServiceAdaptor.NetCore.Gateway
                 byte[] arg = null;
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    request.Body.CopyTo(ms);
+                    //request.Body.CopyTo(ms);
+                    await request.Body.CopyToAsync(ms);
                     if (ms.Length > 0)
                     {
                         arg = ms.ToArray();
