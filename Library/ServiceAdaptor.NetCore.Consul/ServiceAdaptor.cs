@@ -74,9 +74,7 @@ namespace ServiceAdaptor.NetCore.Consul
 
             }).ConfigureApp(app =>
             {
-                Logger.Info("[ServiceAdaptor.NetCore.Consul]注册... ");
-
-                Logger.Info("[ServiceAdaptor.NetCore.Consul]配置：" + consulConfig.Serialize());
+                Logger.Info("[ServiceAdaptor.NetCore.Consul]注册... ", consulConfig);
 
                 #region Configure
 
@@ -109,7 +107,7 @@ namespace ServiceAdaptor.NetCore.Consul
 
                     if ((result?.StatusCode) != System.Net.HttpStatusCode.OK)
                     {
-                        Logger.Info("[ServiceAdaptor.NetCore.Consul]注册失败!");
+                        Logger.Error("[ServiceAdaptor.NetCore.Consul]注册失败!");
                         Task.Run(() =>
                         {
                             appLife.StopApplication();
@@ -121,7 +119,7 @@ namespace ServiceAdaptor.NetCore.Consul
                 {
                     Logger.Error(ex);
 
-                    Logger.Info("[ServiceAdaptor.NetCore.Consul]注册失败!");
+                    Logger.Error("[ServiceAdaptor.NetCore.Consul]注册失败!");
                     Task.Run(() =>
                     {
                         appLife.StopApplication();
@@ -155,7 +153,7 @@ namespace ServiceAdaptor.NetCore.Consul
 
                 #endregion
 
-                Logger.Info("[ServiceAdaptor.NetCore.Consul]注册成功!");
+                Logger.Error("[ServiceAdaptor.NetCore.Consul]注册成功!");
 
             });
 
