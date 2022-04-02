@@ -64,14 +64,6 @@ done
 #(x.4)copy dir
 \cp -rf \$basePath/Publish/ReleaseFile/Station/. \"\$publishPath\"
 
-
-#(x.5)copy ServiceCenter
-mkdir -p \"\$basePath/Publish/release/release/ServiceCenter($netVersion)\"
-\cp -rf \$publishPath/ServiceCenter/. \"\$basePath/Publish/release/release/ServiceCenter($netVersion)/ServiceCenter\"
-\cp -rf \"\$publishPath/01.ServiceCenter.bat\" \"\$basePath/Publish/release/release/ServiceCenter($netVersion)\"
-\cp -rf \"\$publishPath/01.Start-4580.bat\" \"\$basePath/Publish/release/release/ServiceCenter($netVersion)\"
-
-
 "
 
 
