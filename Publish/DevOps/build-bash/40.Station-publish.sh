@@ -6,8 +6,11 @@ set -e
 args_="
 
 export basePath=/root/temp/svn
+export NUGET_PATH=$basePath/Publish/release/.nuget
 
 # "
+
+if [ ! $NUGET_PATH ]; then NUGET_PATH=$basePath/Publish/release/.nuget; fi
 
 
 #----------------------------------------------
@@ -28,7 +31,7 @@ mkdir -p $publishPath
 
 docker run -i --rm \
 --env LANG=C.UTF-8 \
--v $basePath/Publish/release/.nuget:/root/.nuget \
+-v $NUGET_PATH:/root/.nuget \
 -v $basePath:/root/code \
 serset/dotnet:sdk-6.0 \
 bash -c "
@@ -60,6 +63,13 @@ done
 
 #(x.4)copy dir
 \cp -rf \$basePath/Publish/ReleaseFile/Station/. \"\$publishPath\"
+
+
+#(x.5)copy ServiceCenter
+mkdir -p \"\$basePath/Publish/release/release/ServiceCenter($netVersion)\"
+\cp -rf \$publishPath/ServiceCenter/. \"\$basePath/Publish/release/release/ServiceCenter($netVersion)/ServiceCenter\"
+\cp -rf \"\$publishPath/01.ServiceCenter.bat\" \"\$basePath/Publish/release/release/ServiceCenter($netVersion)\"
+\cp -rf \"\$publishPath/01.Start-4580.bat\" \"\$basePath/Publish/release/release/ServiceCenter($netVersion)\"
 
 
 "
