@@ -33,7 +33,7 @@ namespace ServiceAdaptor.NetCore.MinHttp
 
             #endregion
 
-            Logger.Info("[ServiceAdaptor.NetCore.MinHttp]配置：" + new { gatewayAddress }.Serialize());
+            Logger.Info("[ServiceAdaptor.NetCore.MinHttp]配置", new { gatewayAddress });
 
 
             return builder;

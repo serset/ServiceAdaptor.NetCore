@@ -30,7 +30,7 @@ namespace Vit.Extensions
 
 
                     //(x.2) init
-                    Logger.Info("[ServiceAdaptor.NetCore]启用微服务适配器："+ msAdaptor.GetType().FullName);
+                    Logger.Info("[ServiceAdaptor.NetCore]启用微服务适配器", msAdaptor.GetType().FullName);
                     var builder = msAdaptor.InitWebHostBuilder(hostBuilder, msConfig, out var apiClient);
                     ApiClient.Instance = apiClient;
 
