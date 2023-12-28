@@ -1,14 +1,20 @@
 ﻿using Consul;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+
 using Newtonsoft.Json.Linq;
+
 using ServiceAdaptor.NetCore.Client;
+
 using System;
 using System.Threading.Tasks;
+
 using Vit.Core.Module.Log;
 using Vit.Extensions;
+using Vit.Extensions.Json_Extensions;
 
 namespace ServiceAdaptor.NetCore.Consul
 {

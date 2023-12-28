@@ -6,16 +6,17 @@ using Vit.Core.Module.Log;
 using ServiceAdaptor.NetCore.Client;
 using ServiceAdaptor.NetCore;
 using Vit.Core.Util.Reflection;
+using Vit.Extensions.Newtonsoft_Extensions;
 
 namespace Vit.Extensions
 {
     public static class IWebHostBuilderExtensions_UseServiceAdaptor
     {
-        
+
         public static IWebHostBuilder UseServiceAdaptor(this IWebHostBuilder hostBuilder)
         {
-            var configs = ConfigurationManager.Instance.GetByPath<JArray>("ServiceAdaptor");
-            if (configs  == null|| configs.Count==0)
+            var configs = Appsettings.json.GetByPath<JArray>("ServiceAdaptor");
+            if (configs == null || configs.Count == 0)
             {
                 return hostBuilder;
             }
@@ -38,7 +39,7 @@ namespace Vit.Extensions
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(ex);                  
+                    Logger.Error(ex);
                 }
             }
 
@@ -54,10 +55,10 @@ namespace Vit.Extensions
 
                 var assemblyFile = config["assemblyFile"].ConvertToString();
                 if (string.IsNullOrEmpty(assemblyFile)) return null;
- 
+
 
                 //(x.2)get assembly 
-                var assembly = ObjectLoader.LoadAssemblyFromFile(assemblyFile);              
+                var assembly = ObjectLoader.LoadAssemblyFromFile(assemblyFile);
 
                 //(x.3) create class
                 return assembly?.CreateInstance(className) as IServiceAdaptor;
@@ -69,6 +70,6 @@ namespace Vit.Extensions
 
 
 
-    
+
     }
 }

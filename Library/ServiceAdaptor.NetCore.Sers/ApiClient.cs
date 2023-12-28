@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vit.Core.Util.Net;
 using Vit.Extensions;
+using Vit.Extensions.Object_Serialize_Extensions;
 
 namespace ServiceAdaptor.NetCore.Sers
 {
