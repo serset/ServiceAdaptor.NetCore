@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Vit.Core.Module.Log;
+using Vit.Core.Util.ConfigurationManager;
 using Vit.Extensions;
 using Vit.WebHost;
 
@@ -14,9 +15,9 @@ namespace ServiceAdaptor.NetCore.Gateway
     public class GatewayHost
     {
 
-        static string prefixOfCopyIpToHeader = Vit.Core.Util.ConfigurationManager.ConfigurationManager.Instance.GetStringByPath("Gateway.prefixOfCopyIpToHeader");
+        static string prefixOfCopyIpToHeader = Appsettings.json.GetStringByPath("Gateway.prefixOfCopyIpToHeader");
 
-        static string ResponseDefaultContentType = (Vit.Core.Util.ConfigurationManager.ConfigurationManager.Instance.GetStringByPath("Gateway.ResponseDefaultContentType") ?? ("application/json; charset=" + Vit.Core.Module.Serialization.Serialization_Newtonsoft.Instance.charset));
+        static string ResponseDefaultContentType = (Appsettings.json.GetStringByPath("Gateway.ResponseDefaultContentType") ?? ("application/json; charset=" + Vit.Core.Module.Serialization.Serialization_Newtonsoft.Instance.charset));
         static async Task Bridge(HttpContext context)
         {
             try
@@ -120,7 +121,7 @@ namespace ServiceAdaptor.NetCore.Gateway
             try
             {
 
-                HostRunArg arg = Vit.Core.Util.ConfigurationManager.ConfigurationManager.Instance.GetByPath<HostRunArg>("Gateway");
+                HostRunArg arg = Appsettings.json.GetByPath<HostRunArg>("Gateway");
                 if (arg == null || arg.urls == null || arg.urls.Length == 0) return;
 
 
@@ -142,7 +143,7 @@ namespace ServiceAdaptor.NetCore.Gateway
                 arg.RunAsync = true;
 
 
-                #region (x.x.4)启动           
+                #region (x.x.4)启动
                 Logger.Info("[WebHost]listening", arg.urls);
 
                 if (arg.staticFiles?.rootPath != null)

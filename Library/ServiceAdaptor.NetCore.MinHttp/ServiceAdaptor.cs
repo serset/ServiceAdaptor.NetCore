@@ -1,15 +1,19 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+
 using Newtonsoft.Json.Linq;
+
 using ServiceAdaptor.NetCore.Client;
+
 using Vit.Core.Module.Log;
-using Vit.Extensions;
+using Vit.Extensions.Json_Extensions;
+using Vit.Extensions.Newtonsoft_Extensions;
 
 namespace ServiceAdaptor.NetCore.MinHttp
 {
     public class ServiceAdaptor : IServiceAdaptor
     {
         public IWebHostBuilder InitWebHostBuilder(IWebHostBuilder builder, JObject config, out IApiClient apiClient)
-        {       
+        {
 
             #region (x.)构建ApiClient     
 
@@ -24,7 +28,7 @@ namespace ServiceAdaptor.NetCore.MinHttp
 
 
             #region (x.x.2)超时时间
-            var timeoutSeconds = config["timeoutSeconds"].ConvertBySerialize<int?>(); 
+            var timeoutSeconds = config["timeoutSeconds"].ConvertBySerialize<int?>();
             if (timeoutSeconds.HasValue)
             {
                 httpApi.vitHttpClient.TimeoutSeconds = timeoutSeconds.Value;
