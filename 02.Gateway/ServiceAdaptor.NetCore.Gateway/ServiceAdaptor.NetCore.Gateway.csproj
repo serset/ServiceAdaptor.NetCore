@@ -17,7 +17,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <DocumentationFile>bin\Debug\netstandard2.0\ServiceAdaptor.NetCore.Gateway.xml</DocumentationFile>
+        <DocumentationFile>bin\Debug\net6.0\ServiceAdaptor.NetCore.Gateway.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -32,7 +32,6 @@
         <ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.MinHttp\ServiceAdaptor.NetCore.MinHttp.csproj" />
         <ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Consul\ServiceAdaptor.NetCore.Consul.csproj" />
         <ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Sers\ServiceAdaptor.NetCore.Sers.csproj" />
-        <!--<ProjectReference Include="..\..\Library\ServiceAdaptor.NetCore.Be.Eureka\ServiceAdaptor.NetCore.Be.Eureka.csproj" />-->
     </ItemGroup>
 
 

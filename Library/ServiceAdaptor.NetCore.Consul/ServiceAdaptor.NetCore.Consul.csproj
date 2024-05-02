@@ -21,7 +21,7 @@
 
     <ItemGroup>
         <PackageReference Include="Consul" Version="0.7.2.6" />
-        <PackageReference Include="Vit.WebHost" Version="2.1.19" />
+        <PackageReference Include="Vit.WebHost" Version="2.1.21" />
     </ItemGroup>
 
 
