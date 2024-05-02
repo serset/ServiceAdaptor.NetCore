@@ -1,12 +1,12 @@
 set -e
 
-# cd /root/temp/svn/Publish/DevOps/github-bash;bash startup.bash;
+# cd github-bash; bash startup.bash;
 
 #---------------------------------------------------------------------
-#(x.1)参数
+# args
 args_="
 
-export APPNAME=xxxxxx
+#export APPNAME=xxxxxx
 
 export DOCKER_USERNAME=serset
 export DOCKER_PASSWORD=xxxxxx
@@ -14,50 +14,52 @@ export DOCKER_PASSWORD=xxxxxx
 export NUGET_SERVER=https://api.nuget.org/v3/index.json
 export NUGET_KEY=xxxxxx
 
-export GIT_SSH_SECRET=xxxxxx
+export WebDav_BaseUrl="https://nextcloud.xxx.com/remote.php/dav/files/release/releaseFiles/ki_jenkins"
+export WebDav_User="username:pwd"
 
 # "
 
 #----------------------------------------------
-#(x.2)当前路径
+# cur path
 curPath=$PWD
 
 cd $curPath/../../..
-export basePath=$PWD
+export basePath="$PWD"
 cd $curPath
+
+export devOpsPath="$PWD/.."
 
 # export basePath=/root/temp/svn
 
-
-
-#---------------------------------------------- 
-echo '(x.4)build'
-cd $basePath/Publish/DevOps/build-bash; bash startup.bash;
-cd $basePath/Publish/DevOps/build-bash; bash 40.Station-publish-multiple.bash;
-
-
+if [ ! $APPNAME ]; then 
+	export APPNAME=$(cat "$devOpsPath/environment/env.APPNAME.txt" | tr -d '\n')
+	echo "APPNAME: [${APPNAME}]" 
+fi
 
 #---------------------------------------------- 
-echo '(x.5)release-bash'
-cd $basePath/Publish/DevOps/release-bash; bash startup.bash;
+echo '#1 build'
+cd "$devOpsPath/build-bash"; bash startup.bash;
+
+#---------------------------------------------- 
+echo '#2 release-bash'
+cd "$devOpsPath/release-bash"; bash startup.bash;
  
 
 
 #----------------------------------------------
-echo "(x.3)get version" 
-export version=`grep '<Version>' $(grep '<pack>\|<publish>' ${basePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
-echo $version
+echo "#3 get appVersion" 
+cd "$devOpsPath/build-bash"; source 19.get-app-version.bash;
 
 
 
 #----------------------------------------------
-#(x.4)bash
+echo "#4 bash"
 cd $curPath
 for file in *.sh
 do
-    echo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    echo "[$(date "+%H:%M:%S")]" bash $file
-    bash $file
+    echo "-----------------------------------------------------------------"
+    echo "[$(date "+%H:%M:%S")]" sh $file
+    sh $file
 done
 
 

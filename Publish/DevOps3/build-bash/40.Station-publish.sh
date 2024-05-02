@@ -14,29 +14,36 @@ if [ ! $NUGET_PATH ]; then NUGET_PATH=$basePath/Publish/release/.nuget; fi
 
 
 #----------------------------------------------
-echo "40.Station-publish.sh find projects and build"
+echo "#40.Station-publish.sh -> find projects and build"
 
-
-
+export devOpsPath="$PWD/.."
 
 docker run -i --rm \
 --env LANG=C.UTF-8 \
 -v $NUGET_PATH:/root/.nuget \
--v $basePath:/root/code \
+-v "$basePath":/root/code \
+-v "$basePath":"$basePath" \
 serset/dotnet:sdk-6.0 \
 bash -c "
 set -e
 
+if grep '<publish>' -r --include *.csproj /root/code; then
+	echo '#40.Station-publish.sh -> got projects need to be built'
+else
+	echo '#40.Station-publish.sh -> skip for no project needs to be built'
+	exit 0
+fi
+
 echo '#1 get netVersion'
-netVersion=\$(grep '<TargetFramework>' \$(grep '<publish>' -rl --include *.csproj /root/code | head -n 1) | grep -oP '>(.*)<' | tr -d '<>')
+export netVersion=\$(grep '<TargetFramework>' \$(grep '<publish>' -rl --include *.csproj /root/code | head -n 1) | grep -oP '>(.*)<' | tr -d '<>')
 echo netVersion: \$netVersion
 
 
-basePath=/root/code
-publishPath=\$basePath/Publish/release/release/Station\(\$netVersion\)
+export basePath=/root/code
+export publishPath=\$basePath/Publish/release/release/Station\(\$netVersion\)
 mkdir -p \$publishPath
 
-echo '#2 publish Station'
+echo '#2 publish station'
 cd \$basePath
 for file in \$(grep -a '<publish>' . -rl --include *.csproj)
 do
@@ -57,8 +64,20 @@ do
 done
 
 
-echo '#3 copy ReleaseFile'
-\cp -rf \$basePath/Publish/ReleaseFile/Station/. \"\$publishPath\"
+#3 copy station release files
+if [ -d \"\$basePath/Publish/ReleaseFile/Station\" ]; then
+	echo '#3 copy station release files'
+	\cp -rf \$basePath/Publish/ReleaseFile/Station/. \"\$publishPath\"
+fi
+
+
+#4 copy extra release files
+bashFile=\"$devOpsPath/environment/build-bash__40.Station-publish__#4_copyExtraReleaseFiles.sh\"
+if [ -f \"\$bashFile\" ]; then
+	echo '#4 copy extra release files'
+	sh \"\$bashFile\"
+fi
+
 
 
 
@@ -66,7 +85,7 @@ echo '#3 copy ReleaseFile'
 
 
 
-echo 'publish succeed!'
+echo '#40.Station-publish.sh -> success!'
 
 
 
